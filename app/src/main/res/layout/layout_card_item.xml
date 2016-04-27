@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="#DADADA"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dip"
+            android:contentDescription="@null"
+            android:src="@drawable/widget_today_icon"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/list_text_title"
+            android:textColor="@color/text_dark"
+            android:text="七八十年代的爱情 一把纸伞"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_title"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="end"
+        android:text="几封情书，不够直白，委婉相诉也能腼腆牵手，一面之缘也可以白头终老。“每一句都说到心坎上，每晚都会去他微博看看，已成为一种习惯，喜欢的可以关注他，这里总有一句你喜欢的话。"
+        android:maxLines="2"
+        android:textColor="@color/text_light" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_description"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_source"
+            style="@style/list_text_info"
+            android:layout_marginRight="10dp" />
+
+        <IconTextView
+            style="@style/list_text_info"
+            android:text="{fa-clock-o} " />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/list_text_info"
+            android:layout_marginRight="10dp" />
+
+        <IconTextView
+            style="@style/list_text_info"
+            android:text="{fa-comments-o} " />
+
+        <TextView
+            android:id="@+id/tv_comment_count"
+            style="@style/list_text_info" />
+    </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
