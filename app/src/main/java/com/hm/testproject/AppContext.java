@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.util.DisplayMetrics;
@@ -15,7 +17,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.PersistentCookieStore;
+
+import org.kymjs.kjframe.bitmap.BitmapConfig;
+import org.kymjs.kjframe.utils.KJLoger;
+import org.kymjs.kjframe.utils.StringUtils;
+
 import java.util.Properties;
+import java.util.UUID;
+
+import http.ApiHttpClient;
 
 /**
  * Created by Administrator on 2016/4/27.
@@ -27,8 +39,10 @@ public class AppContext extends Application{
     static Resources _resource;
     private static long lastToastTime;
     private static String lastToast = "";
-
+    public static final int PAGE_SIZE = 20;// 默认分页大小
     private static AppContext instance;
+
+
 
     public static synchronized AppContext context() {
         return (AppContext) _context;
@@ -53,6 +67,22 @@ public class AppContext extends Application{
         } else {
             editor.commit();
         }
+    }
+
+    private void init() {
+        // 初始化网络请求
+        AsyncHttpClient client = new AsyncHttpClient();
+        PersistentCookieStore myCookieStore = new PersistentCookieStore(this);
+        client.setCookieStore(myCookieStore);
+        ApiHttpClient.setHttpClient(client);
+        ApiHttpClient.setCookie(ApiHttpClient.getCookie(this));
+
+        // Log控制器
+        KJLoger.openDebutLog(true);
+        //TLog.DEBUG = BuildConfig.DEBUG;
+
+        // Bitmap缓存地址
+       // BitmapConfig. = "OSChina/imagecache";
     }
     public static int[] getDisplaySize() {
         return new int[]{getPreferences().getInt("screen_width", 480),
@@ -103,6 +133,9 @@ public class AppContext extends Application{
         _context = getApplicationContext();
         _resource = _context.getResources();
         instance = this;
+        init();
+
+
     }
 
     public void setProperties(Properties ps) {
@@ -113,8 +146,48 @@ public class AppContext extends Application{
         return AppConfig.getAppConfig(this).get();
     }
 
+
     public void setProperty(String key, String value) {
         AppConfig.getAppConfig(this).set(key, value);
+    }
+
+    public String getProperty(String key) {
+        String res = AppConfig.getAppConfig(this).get(key);
+        return res;
+    }
+    public void removeProperty(String... key) {
+        AppConfig.getAppConfig(this).remove(key);
+    }
+
+    /**
+     * 获取App唯一标识
+     *
+     * @return
+     */
+    public String getAppId() {
+        String uniqueID = getProperty(AppConfig.CONF_APP_UNIQUEID);
+        if (StringUtils.isEmpty(uniqueID)) {
+            uniqueID = UUID.randomUUID().toString();
+            setProperty(AppConfig.CONF_APP_UNIQUEID, uniqueID);
+        }
+        return uniqueID;
+    }
+
+    /**
+     * 获取App安装包信息
+     *
+     * @return
+     */
+    public PackageInfo getPackageInfo() {
+        PackageInfo info = null;
+        try {
+            info = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace(System.err);
+        }
+        if (info == null)
+            info = new PackageInfo();
+        return info;
     }
 
     /**
