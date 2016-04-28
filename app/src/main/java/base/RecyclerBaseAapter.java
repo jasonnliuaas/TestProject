@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import bean.Entity;
 import viewholder.ViewHolder;
@@ -24,8 +25,39 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     protected int state = STATE_LESS_ONE_PAGE;
     private int layoutId;
 
-    public ArrayList<T> getmDatas() {
-        return mDatas;
+    public ArrayList<T> getData() {
+        return mDatas == null ? (mDatas = new ArrayList<T>()) : mDatas;
+    }
+
+    public void addData(List<T> data) {
+        if (mDatas != null && data != null && !data.isEmpty()) {
+            mDatas.addAll(data);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void addItem(T obj) {
+        if (mDatas != null) {
+            mDatas.add(obj);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void addItem(int pos, T obj) {
+        if (mDatas != null) {
+            mDatas.add(pos, obj);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void removeItem(Object obj) {
+        mDatas.remove(obj);
+        notifyDataSetChanged();
+    }
+
+    public void clear() {
+        mDatas.clear();
+        notifyDataSetChanged();
     }
 
     public void setDatas(ArrayList mDatas) {
