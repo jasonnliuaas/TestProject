@@ -6,8 +6,10 @@
     android:orientation="vertical" >
 
     <android.support.design.widget.TabLayout
+        style="@style/myTab"
         android:layout_width="match_parent"
         android:id="@+id/tab_layout"
+        app:tabBackground="@color/lightblue"
         android:layout_height="wrap_content">
     </android.support.design.widget.TabLayout>
 

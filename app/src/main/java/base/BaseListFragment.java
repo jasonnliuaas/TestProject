@@ -37,6 +37,7 @@ import bean.ResultBean;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cz.msebera.android.httpclient.Header;
+import ui.SpaceItemDecoration;
 import util.XmlUtils;
 
 @SuppressLint("NewApi")
@@ -127,12 +128,14 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
                 R.color.swiperefresh_color1, R.color.swiperefresh_color2,
                 R.color.swiperefresh_color3, R.color.swiperefresh_color4);
 
+        mrecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mrecycleView.addItemDecoration(new SpaceItemDecoration(20));
+        mrecycleView.setItemAnimator(new DefaultItemAnimator());
         if (mAdapter != null) {
             mrecycleView.setAdapter(mAdapter);
             //mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         } else {
             mAdapter = getRecyclerAdapter();
-            mrecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
             mrecycleView.setAdapter(mAdapter);
             requestData(false);
             /*if (requestDataIfViewCreated()) {
