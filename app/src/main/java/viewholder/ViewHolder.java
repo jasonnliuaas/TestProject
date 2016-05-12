@@ -10,7 +10,7 @@ import android.widget.TextView;
 /**
  * Created by Administrator on 2016/4/28.
  */
-public  class ViewHolder extends RecyclerView.ViewHolder {
+public    class ViewHolder extends RecyclerView.ViewHolder {
 
     private SparseArray<View> views;
     private Context mcontext;

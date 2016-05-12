@@ -22,42 +22,31 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     public static final int STATE_LESS_ONE_PAGE = 4;
     public static final int STATE_NETWORK_ERROR = 5;
     public static final int STATE_OTHER = 6;
-    protected int state = STATE_LESS_ONE_PAGE;
+    protected int mstate = STATE_LESS_ONE_PAGE;
     private int layoutId;
 
-    public ArrayList<T> getData() {
-        return mDatas == null ? (mDatas = new ArrayList<T>()) : mDatas;
+    public void addData(T t){
+        this.mDatas.add(t);
+        notifyDataSetChanged();
+    }
+    public void addData(List<T> t){
+        this.mDatas.addAll(t);
+        notifyDataSetChanged();
+    }
+    public void setState(int state) {
+        this.mstate = state;
     }
 
-    public void addData(List<T> data) {
-        if (mDatas != null && data != null && !data.isEmpty()) {
-            mDatas.addAll(data);
-        }
+    public int getState() {
+        return this.mstate;
+    }
+    public void clear(){
+        this.mDatas.clear();
         notifyDataSetChanged();
     }
 
-    public void addItem(T obj) {
-        if (mDatas != null) {
-            mDatas.add(obj);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void addItem(int pos, T obj) {
-        if (mDatas != null) {
-            mDatas.add(pos, obj);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void removeItem(Object obj) {
-        mDatas.remove(obj);
-        notifyDataSetChanged();
-    }
-
-    public void clear() {
-        mDatas.clear();
-        notifyDataSetChanged();
+    public ArrayList<T> getmDatas() {
+        return mDatas;
     }
 
     public void setDatas(ArrayList mDatas) {
@@ -72,7 +61,7 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
         this.mInflater = mInflater;
     }
 
-    private ArrayList<T> mDatas = new ArrayList<T>();
+    protected ArrayList<T> mDatas = new ArrayList<T>();
 
     public RecyclerBaseAapter(Context context) {
         getLayoutInflater(context);
@@ -99,7 +88,7 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        initViewdata(holder,mDatas.get(position));
+        initViewdata(mDatas.get(position),holder);
     }
 
     @Override
@@ -107,5 +96,5 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
         return mDatas.size();
     }
 
-    public abstract void initViewdata(ViewHolder holder,T t);
+    public abstract void initViewdata(T t,ViewHolder holder);
 }

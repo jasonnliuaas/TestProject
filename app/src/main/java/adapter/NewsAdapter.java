@@ -1,32 +1,71 @@
 package adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import viewholder.ViewHolder;
+import com.hm.testproject.R;
+
+import org.kymjs.kjframe.utils.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import base.RecyclerBaseAapter;
 import bean.News;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import viewholder.ViewHolder;
 
 /**
  * Created by Ekko. on 2016/4/28.
  */
 public class NewsAdapter extends RecyclerBaseAapter<News> {
+
+
     public NewsAdapter(Context context) {
         super(context);
     }
 
     public NewsAdapter(Context context, int layoutId) {
         super(context, layoutId);
+        this.mDatas = new ArrayList<News>();
+
     }
 
     @Override
-    public void initViewdata(ViewHolder holder, News news) {
-
+    public void addData(News news) {
+       this.mDatas.add(news);
+        notifyDataSetChanged();
+    }
+    public void addData(List<News> t){
+        this.mDatas.addAll(t);
+        notifyDataSetChanged();
     }
 
 
+
+    @Override
+    public void initViewdata(News news,ViewHolder holder) {
+        //this.tvTime.setText(StringUtils.friendlyTime(news.get));
+        holder.setText(news.getTitle(),R.id.tv_title);
+
+    }
+
+    /*@Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ViewHolder viewHolder = new ViewHolder(getLayoutInflater(parent.getContext()).inflate(R.layout.layout_card_item, null));
+        return viewHolder;
+    }*/
+
+    @Override
+    public int getItemCount() {
+        return super.getItemCount();
+    }
     /**
      * This class contains all butterknife-injected Views & Layouts from layout file 'layout_card_item.xml'
      * for easy to all layout elements.
@@ -40,16 +79,16 @@ public class NewsAdapter extends RecyclerBaseAapter<News> {
 
 
 
-   /* @Override
+    @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewHolder viewHolder = new ViewHolder(getLayoutInflater(parent.getContext()).inflate(R.layout.layout_card_item, null));
         return viewHolder;
     }
 
-    @Override
+    /*@Override
     public void onBindViewHolder(ViewHolder vh, int position) {
         News news =getmDatas().get(position);
-        vh.tv_title.setText(news.getTitle());
+
 
        *//* if (AppContext.isOnReadedPostList(NewsList.PREF_READED_NEWS_LIST,
                 news.getId() + "")) {
@@ -60,7 +99,7 @@ public class NewsAdapter extends RecyclerBaseAapter<News> {
                     .getColor(ThemeSwitchUtils.getTitleUnReadedColor()));
         }*//*
 
-        String description = news.getBody();
+        *//*String description = news.getBody();
         vh.description.setVisibility(View.GONE);
         if (description != null && !StringUtils.isEmpty(description)) {
             vh.description.setVisibility(View.VISIBLE);
@@ -74,16 +113,16 @@ public class NewsAdapter extends RecyclerBaseAapter<News> {
             vh.tip.setVisibility(View.GONE);
         }
         vh.time.setText(StringUtils.friendly_time(news.getPubDate()));
-        vh.comment_count.setText(news.getCommentCount() + "");
-    }
+        vh.comment_count.setText(news.getCommentCount() + "");*//*
+    }*/
 
-    *//**
+    /**
      * This class contains all butterknife-injected Views & Layouts from layout file 'layout_card_item.xml'
      * for easy to all layout elements.
      *
      * @author ButterKnifeZelezny, plugin for Android Studio by Avast Developers (http://github.com/avast)
-     *//*
-     class ViewHolder extends RecyclerBaseAapter.MyViewHolder {
+     */
+     class MyViewHolder extends ViewHolder {
         @InjectView(R.id.iv_tip)
         ImageView ivTip;
         @InjectView(R.id.tv_title)
@@ -99,9 +138,9 @@ public class NewsAdapter extends RecyclerBaseAapter<News> {
         @InjectView(R.id.tv_comment_count)
         TextView tvCommentCount;
 
-        ViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
             ButterKnife.inject(this, view);
         }
-    }*/
+    }
 }

@@ -2,26 +2,64 @@ package ui.acy;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.hm.testproject.R;
 
+import java.util.List;
+
+import adapter.ViewPagerAdapter;
+import base.BaseActiviy;
+import base.BaseListActivity;
+import base.BaseListFragment;
+import base.RecyclerBaseAapter;
+import bean.News;
+import bean.NewsList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import fragment.NewsFragment;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends BaseActiviy {
 
     @InjectView(R.id.tab_layout)
     TabLayout tabLayout;
     @InjectView(R.id.pager)
     ViewPager pager;
+    ViewPagerAdapter fa;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
         ButterKnife.inject(this);
+        initWidget();
 
     }
+    private Bundle getBundle(int newType) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(BaseListFragment.BUNDLE_KEY_CATALOG, newType);
+        return bundle;
+    }
+    @Override
+    public void initWidget() {
+        fa = new ViewPagerAdapter(getSupportFragmentManager(),this);
+        fa.addTab("page王", "news", NewsFragment.class,
+                getBundle(NewsList.CATALOG_ALL));
+        fa.addTab("page图", "news_week", NewsFragment.class,
+                getBundle(NewsList.CATALOG_ALL));/*
+        fa.addTab("page霸", "news", NewsFragment.class,
+                getBundle(NewsList.CATALOG_ALL));
+        fa.addTab("page业", "news_week", NewsFragment.class,
+                getBundle(NewsList.CATALOG_ALL));*/
+        pager.setAdapter(fa);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        tabLayout.setupWithViewPager(pager);
+
+    }
+
+
 }

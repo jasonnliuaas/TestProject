@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Base.Theme.AppCompat">
         <item name="colorPrimary">@color/lightblue</item>
         <item name="colorPrimaryDark">@color/darker_blue</item>
-        <item name="actionBarSize">?attr/actionBarSize</item>
+        <item name="actionBarSize">50dp</item>
         <item name="colorAccent">@color/lightblue</item>
     </style>
 

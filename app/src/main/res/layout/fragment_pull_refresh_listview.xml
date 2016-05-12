@@ -18,15 +18,8 @@
             android:layout_height="fill_parent"
             android:background="@color/line_background"
             android:listSelector="@color/transparent"
-            android:dividerHeight="1px"
             android:scrollbars="none"
             android:scrollingCache="true" />
     </android.support.v4.widget.SwipeRefreshLayout>
-    
-    <net.oschina.app.ui.empty.EmptyLayout
-        android:id="@+id/error_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible" />
 
 </RelativeLayout>
