@@ -13,7 +13,7 @@
 
     <style name="myTab" parent="Widget.Design.TabLayout">
         <item name="tabBackground">?attr/colorPrimary</item>
-        <item name="tabIndicatorColor">@color/black</item>
+        <item name="tabIndicatorColor">@color/darkblue</item>
         <item name="tabSelectedTextColor">@color/white</item>
 
     </style>

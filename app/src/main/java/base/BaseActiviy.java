@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.hm.testproject.AppManager;
+import com.umeng.message.PushAgent;
 
 import org.kymjs.kjframe.ui.I_KJActivity;
 import org.kymjs.kjframe.ui.I_SkipActivity;
@@ -59,6 +60,7 @@ public abstract class BaseActiviy extends AppCompatActivity implements I_KJActiv
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
+        PushAgent.getInstance(this).onAppStart();
     }
 
     @Override

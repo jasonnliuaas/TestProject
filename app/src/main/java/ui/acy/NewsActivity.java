@@ -5,10 +5,16 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
 import com.hm.testproject.R;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
+
+import org.android.agoo.client.BaseRegistrar;
 
 import java.util.List;
 
@@ -25,11 +31,14 @@ import fragment.NewsFragment;
 
 public class NewsActivity extends BaseActiviy {
 
+    private PushAgent mPushAgent;
     @InjectView(R.id.tab_layout)
     TabLayout tabLayout;
     @InjectView(R.id.pager)
     ViewPager pager;
     ViewPagerAdapter fa;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,20 @@ public class NewsActivity extends BaseActiviy {
         setContentView(R.layout.activity_news);
         ButterKnife.inject(this);
         initWidget();
+        mPushAgent = PushAgent.getInstance(this);
+        mPushAgent.setDebugMode(true);
+        mPushAgent.enable(new IUmengRegisterCallback() {
+            @Override
+            public void onRegistered(String s) {
+                Log.d("TAG",s);
+
+            }
+        });
+        boolean registered = mPushAgent.isRegistered();
+        boolean enabled = mPushAgent.isEnabled();
+        if (registered && enabled) {
+
+        }
 
     }
     private Bundle getBundle(int newType) {
@@ -46,6 +69,7 @@ public class NewsActivity extends BaseActiviy {
     }
     @Override
     public void initWidget() {
+        this.setSupportActionBar(toolbar);
         fa = new ViewPagerAdapter(getSupportFragmentManager(),this);
         fa.addTab("page王", "news", NewsFragment.class,
                 getBundle(NewsList.CATALOG_ALL));

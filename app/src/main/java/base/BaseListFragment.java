@@ -32,11 +32,13 @@ import java.util.List;
 
 import bean.Entity;
 import bean.ListEntity;
+import bean.News;
 import bean.Result;
 import bean.ResultBean;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cz.msebera.android.httpclient.Header;
+import it.gmariotti.recyclerview.adapter.SlideInBottomAnimatorAdapter;
 import ui.SpaceItemDecoration;
 import util.XmlUtils;
 
@@ -132,11 +134,13 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         mrecycleView.addItemDecoration(new SpaceItemDecoration(20));
         mrecycleView.setItemAnimator(new DefaultItemAnimator());
         if (mAdapter != null) {
-            mrecycleView.setAdapter(mAdapter);
+            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter,mrecycleView);
+            mrecycleView.setAdapter(slideInBottomAnimatorAdapter);
             //mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         } else {
             mAdapter = getRecyclerAdapter();
-            mrecycleView.setAdapter(mAdapter);
+            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter,mrecycleView);
+            mrecycleView.setAdapter(slideInBottomAnimatorAdapter);
             requestData(false);
             /*if (requestDataIfViewCreated()) {
                 //mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
