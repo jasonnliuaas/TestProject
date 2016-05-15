@@ -25,6 +25,7 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     protected int mstate = STATE_LESS_ONE_PAGE;
     private int layoutId;
 
+
     public void addData(T t){
         this.mDatas.add(t);
         notifyDataSetChanged();
@@ -43,6 +44,9 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     public void clear(){
         this.mDatas.clear();
         notifyDataSetChanged();
+    }
+    public  void initViewData(ViewHolder vh,T t){
+
     }
 
     public ArrayList<T> getmDatas() {
@@ -82,13 +86,8 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(mInflater.inflate(layoutId,null));
-    }
-
-    @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        initViewdata(mDatas.get(position),holder);
+        initViewData(holder,mDatas.get(position));
     }
 
     @Override
@@ -96,5 +95,4 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
         return mDatas.size();
     }
 
-    public abstract void initViewdata(T t,ViewHolder holder);
 }

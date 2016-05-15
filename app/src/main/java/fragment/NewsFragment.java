@@ -41,10 +41,10 @@ public class NewsFragment extends BaseListFragment<News> {
         return new NewsAdapter(getActivity(), R.layout.layout_card_item);
     }
 
-    /*@Override
+    @Override
     protected String getCacheKeyPrefix() {
         return CACHE_KEY_PREFIX + mCatalog;
-    }*/
+    }
 
     @Override
     protected NewsList parseList(InputStream is) throws Exception {

@@ -2,6 +2,7 @@ package adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,7 +25,7 @@ import viewholder.ViewHolder;
 /**
  * Created by Ekko. on 2016/4/28.
  */
-public class NewsAdapter extends RecyclerBaseAapter<News> {
+public class NewsAdapter extends RecyclerBaseAapter<News>{
 
 
     public NewsAdapter(Context context) {
@@ -47,13 +48,15 @@ public class NewsAdapter extends RecyclerBaseAapter<News> {
         notifyDataSetChanged();
     }
 
-
-
     @Override
-    public void initViewdata(News news,ViewHolder holder) {
-        //this.tvTime.setText(StringUtils.friendlyTime(news.get));
-        holder.setText(news.getTitle(),R.id.tv_title);
-
+    public void initViewData(ViewHolder vh, News news) {
+        if(vh instanceof MyViewHolder){
+            ((MyViewHolder) vh).tvDescription.setText(news.getBody());
+            ((MyViewHolder) vh).tvTitle.setText(news.getTitle());
+            ((MyViewHolder) vh).tvTime.setText(StringUtils.friendlyTime(news.getPubDate()));
+            ((MyViewHolder) vh).tvCommentCount.setText(news.getCommentCount()+"");
+            //((MyViewHolder) vh).tvSource.setText(news.getAuthor());
+        }
     }
 
     /*@Override
@@ -81,9 +84,11 @@ public class NewsAdapter extends RecyclerBaseAapter<News> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewHolder viewHolder = new ViewHolder(getLayoutInflater(parent.getContext()).inflate(R.layout.layout_card_item, null));
+        MyViewHolder viewHolder = new MyViewHolder(getLayoutInflater(parent.getContext()).inflate(R.layout.layout_card_item, null));
         return viewHolder;
     }
+
+
 
     /*@Override
     public void onBindViewHolder(ViewHolder vh, int position) {

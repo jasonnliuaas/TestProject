@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
     android:layout_marginBottom="5dp"
-    app:cardCornerRadius="5dp"
-    app:cardBackgroundColor="#DADADA"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <RelativeLayout
@@ -47,7 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ll_title"
         android:layout_marginBottom="5dp"
-        android:ellipsize="end"
         android:text="几封情书，不够直白，委婉相诉也能腼腆牵手，一面之缘也可以白头终老。“每一句都说到心坎上，每晚都会去他微博看看，已成为一种习惯，喜欢的可以关注他，这里总有一句你喜欢的话。"
         android:maxLines="2"
         android:textColor="@color/text_light" />
@@ -84,4 +78,4 @@
     </LinearLayout>
     </RelativeLayout>
 
-</android.support.v7.widget.CardView>
+</LinearLayout>

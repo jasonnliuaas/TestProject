@@ -1,5 +1,10 @@
 package cache;
 
+import android.content.Context;
+import android.os.Environment;
+
+import org.kymjs.kjframe.utils.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -8,12 +13,7 @@ import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import net.oschina.app.util.TDevice;
-
-import org.kymjs.kjframe.utils.FileUtils;
-
-import android.content.Context;
-import android.os.Environment;
+import util.TDevice;
 
 /**
  * 缓存工具类

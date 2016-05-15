@@ -1,9 +1,9 @@
 package cache;
 
-import java.io.File;
-
 import android.content.Context;
 import android.os.Environment;
+
+import java.io.File;
 
 /**
  * 数据删除工具类

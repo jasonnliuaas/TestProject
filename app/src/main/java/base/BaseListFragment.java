@@ -37,15 +37,17 @@ import bean.Result;
 import bean.ResultBean;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import cache.CacheManager;
 import cz.msebera.android.httpclient.Header;
 import it.gmariotti.recyclerview.adapter.SlideInBottomAnimatorAdapter;
 import ui.SpaceItemDecoration;
+import util.TDevice;
 import util.XmlUtils;
 
 @SuppressLint("NewApi")
 public abstract class BaseListFragment<T extends Entity> extends BaseFragment
-        implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener,
-        OnScrollListener {
+        implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener
+        {
     public static final String BUNDLE_KEY_CATALOG = "BUNDLE_KEY_CATALOG";
     public static final int STATE_NONE = 0;
     public static final int STATE_REFRESH = 1;
@@ -73,26 +75,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     protected Result mResult;
     private AsyncTask<String, Void, ListEntity<T>> mCacheTask;
     private ParserTask mParserTask;
-
-    /*@Override
-    protected int getLayoutId() {
-        return R.layout.fragment_pull_refresh_listview;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), container, false);
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        ButterKnife.inject(this, view);
-        initView(view);
-    }*/
-
 
 
     @Override
@@ -122,25 +104,30 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             mCatalog = args.getInt(BUNDLE_KEY_CATALOG, 0);
         }
     }
+
     protected abstract RecyclerBaseAapter<T> getRecyclerAdapter();
+
     @Override
     public void initView(View view) {
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.swiperefresh_color1, R.color.swiperefresh_color2,
                 R.color.swiperefresh_color3, R.color.swiperefresh_color4);
-
-        mrecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        mrecycleView.setLayoutManager(manager);
         mrecycleView.addItemDecoration(new SpaceItemDecoration(20));
         mrecycleView.setItemAnimator(new DefaultItemAnimator());
         if (mAdapter != null) {
-            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter,mrecycleView);
+            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter, mrecycleView);
             mrecycleView.setAdapter(slideInBottomAnimatorAdapter);
             //mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         } else {
             mAdapter = getRecyclerAdapter();
-            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter,mrecycleView);
+            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter, mrecycleView);
             mrecycleView.setAdapter(slideInBottomAnimatorAdapter);
+            /**
+             * 第一次请求数据
+             */
             requestData(false);
             /*if (requestDataIfViewCreated()) {
                 //mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
@@ -151,6 +138,34 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             }*/
 
         }
+        mrecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if(newState == RecyclerView.SCROLL_STATE_IDLE){
+                    int lastVisiblePosition = manager.findLastVisibleItemPosition();
+                    if(lastVisiblePosition >= manager.getItemCount() - 1){
+                        if (mAdapter == null || mAdapter.getItemCount() == 0) {
+                            return;
+                        }
+                        if (mState == STATE_NONE) {
+                            if (mAdapter.getState() == RecyclerBaseAapter.STATE_LOAD_MORE
+                                    || mAdapter.getState() == RecyclerBaseAapter.STATE_NETWORK_ERROR) {
+                                mCurrentPage++;
+                                mState = STATE_LOADMORE;
+                                requestData(false);
+                                //mAdapter.setFooterViewLoading();
+                            }
+                        }
+                    }
+                    }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
 
         /*mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
 
@@ -167,8 +182,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     }
 
 
-        /*mrecycleView.setlis;
-        mrecycleView.setOnScrollListener(this);*/
 
         /*if (mAdapter != null) {
             mrecycleView.setAdapter(mAdapter);
@@ -193,12 +206,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
 
 
-    @Override
-    public void onDestroy() {
-        cancelReadCacheTask();
-        cancelParserTask();
-        super.onDestroy();
-    }
+
 
     protected abstract RecyclerBaseAapter<T> getListAdapter();
 
@@ -251,15 +259,56 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         mState = STATE_REFRESH;
         requestData(true);
     }
+
+    @Override
+    public void onDestroy() {
+        cancelReadCacheTask();
+        cancleParserTask();
+        super.onDestroy();
+    }
+
+            /**
+             * 是否从网络读取数据
+             * @param refresh
+             */
     protected void requestData(boolean refresh) {
-        /*String key = getCacheKey();
+        String key = getCacheKey();
         if (isReadCacheData(refresh)) {
             readCacheData(key);
         } else {
             // 取新的数据
             sendRequestData();
-        }*/
-        sendRequestData();
+        }
+        //sendRequestData();
+    }
+
+    /***
+     * 判断是否需要读取缓存的数据
+     *
+     * @author 火蚁 2015-2-10 下午2:41:02
+     *
+     * @return boolean
+     * @param refresh
+     * @return
+     */
+    protected boolean isReadCacheData(boolean refresh) {
+        String key = getCacheKey();
+        if (!TDevice.hasInternet()) {
+            return true;
+        }
+        // 第一页若不是主动刷新，缓存存在，优先取缓存的
+        if (CacheManager.isExistDataCache(getActivity(), key) && !refresh
+                && mCurrentPage == 0) {
+            return true;
+        }
+        // 其他页数的，缓存存在以及还没有失效，优先取缓存的
+        if (CacheManager.isExistDataCache(getActivity(), key)
+                && !CacheManager.isCacheDataFailure(getActivity(), key)
+                && mCurrentPage != 0) {
+            return true;
+        }
+
+        return false;
     }
 
     protected ListEntity<T> parseList(InputStream is) throws Exception {
@@ -273,14 +322,14 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
     */
 /***
-     * 判断是否需要读取缓存的数据
-     * 
-     * @author 火蚁 2015-2-10 下午2:41:02
-     * 
-     * @return boolean
-     * @param refresh
-     * @return
-     *//*
+ * 判断是否需要读取缓存的数据
+ *
+ * @author 火蚁 2015-2-10 下午2:41:02
+ *
+ * @return boolean
+ * @param refresh
+ * @return
+ *//*
 
     protected boolean isReadCacheData(boolean refresh) {
         String key = getCacheKey();
@@ -313,13 +362,11 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
     /***
      * 自动刷新的时间
-     * 
+     * <p>
      * 默认：自动刷新的时间为半天时间
-     * 
-     * @author 火蚁 2015-2-9 下午5:55:11
-     * 
-     * @return long
+     *
      * @return
+     * @author 火蚁 2015-2-9 下午5:55:11
      */
     protected long getAutoRefreshTime() {
         return 12 * 60 * 60;
@@ -333,11 +380,12 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }*/
     }
 
-    protected void sendRequestData() {}
+    protected void sendRequestData() {
+    }
 
     private void readCacheData(String cacheKey) {
         cancelReadCacheTask();
-        //mCacheTask = new CacheTask(getActivity()).execute(cacheKey);
+        mCacheTask = new CacheTask(getActivity()).execute(cacheKey);
     }
 
     private void cancelReadCacheTask() {
@@ -347,7 +395,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
-    /*private class CacheTask extends AsyncTask<String, Void, ListEntity<T>> {
+    private class CacheTask extends AsyncTask<String, Void, ListEntity<T>> {
         private final WeakReference<Context> mContext;
 
         private CacheTask(Context context) {
@@ -371,7 +419,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             if (list != null) {
                 executeOnLoadDataSuccess(list.getList());
             } else {
-                executeOnLoadDataError(null);
+                //executeOnLoadDataError(null);
             }
             executeOnLoadFinish();
         }
@@ -393,13 +441,13 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             CacheManager.saveObject(mContext.get(), seri, key);
             return null;
         }
-    }*/
+    }
 
     protected AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler() {
 
         @Override
         public void onSuccess(int statusCode, Header[] headers,
-                byte[] responseBytes) {
+                              byte[] responseBytes) {
             if (mCurrentPage == 0) {
                 /*AppContext.putToLastRefreshTime(getCacheKey(),
                         StringUtils.getCurTimeStr());*/
@@ -414,12 +462,24 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
         @Override
         public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-                Throwable arg3) {
-            /*if (isAdded()) {
+                              Throwable arg3) {
+            if (isAdded()) {
                 readCacheData(getCacheKey());
-            }*/
+            }
         }
     };
+
+    private void executeParserTask(byte[] data) {
+        cancleParserTask();
+        mParserTask = new ParserTask(data);
+        mParserTask.execute();
+    }
+    private void cancleParserTask(){
+        if (mParserTask != null){
+            mParserTask.cancel(true);
+            mParserTask = null;
+        }
+    }
 
     protected void executeOnLoadDataSuccess(List<T> data) {
         if (data == null) {
@@ -453,28 +513,36 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         } else {
             adapterState = RecyclerBaseAapter.STATE_LOAD_MORE;
         }
-        //mAdapter.setState(adapterState);
+        mAdapter.setState(adapterState);
         mAdapter.addData(data);
         // 判断等于是因为最后有一项是listview的状态
         if (mAdapter.getItemCount() == 1) {
 
             if (needShowEmptyNoData()) {
-               // mErrorLayout.setErrorType(EmptyLayout.NODATA);
+                // mErrorLayout.setErrorType(EmptyLayout.NODATA);
             } else {
-                //mAdapter.setState(ListBaseAdapter.STATE_EMPTY_ITEM);
+                mAdapter.setState(RecyclerBaseAapter.STATE_EMPTY_ITEM);
                 mAdapter.notifyDataSetChanged();
             }
         }
     }
 
+
     /**
      * 是否需要隐藏listview，显示无数据状态
-     * 
+     *
      * @author 火蚁 2015-1-27 下午6:18:59
-     * 
      */
     protected boolean needShowEmptyNoData() {
         return true;
+    }
+
+    protected String getCacheKeyPrefix() {
+        return null;
+    }
+    private String getCacheKey() {
+        return new StringBuilder(getCacheKeyPrefix()).append("_")
+                .append(mCurrentPage).toString();
     }
 
     protected boolean compareTo(List<? extends Entity> data, Entity enity) {
@@ -493,7 +561,8 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         return AppContext.PAGE_SIZE;
     }
 
-    protected void onRefreshNetworkSuccess() {}
+    protected void onRefreshNetworkSuccess() {
+    }
 
     /*protected void executeOnLoadDataError(String error) {
         if (mCurrentPage == 0
@@ -512,7 +581,9 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         mState = STATE_NONE;
     }
 
-    /** 设置顶部正在加载的状态 */
+    /**
+     * 设置顶部正在加载的状态
+     */
     protected void setSwipeRefreshLoadingState() {
         if (mSwipeRefreshLayout != null) {
             mSwipeRefreshLayout.setRefreshing(true);
@@ -521,7 +592,9 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
-    /** 设置顶部加载完毕的状态 */
+    /**
+     * 设置顶部加载完毕的状态
+     */
     protected void setSwipeRefreshLoadedState() {
         if (mSwipeRefreshLayout != null) {
             mSwipeRefreshLayout.setRefreshing(false);
@@ -529,22 +602,43 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
-    private void executeParserTask(byte[] data) {
-        cancelParserTask();
-        mParserTask = new ParserTask(data);
-        mParserTask.execute();
-    }
-
-    private void cancelParserTask() {
-        if (mParserTask != null) {
-            mParserTask.cancel(true);
-            mParserTask = null;
+    /*@Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        if (mAdapter == null || mAdapter.getItemCount() == 0) {
+            return;
         }
-    }
+        // 数据已经全部加载，或数据为空时，或正在加载，不处理滚动事件
+        if (mState == STATE_LOADMORE || mState == STATE_REFRESH) {
+            return;
+        }
+        // 判断是否滚动到底部
+        boolean scrollEnd = false;
+       try {
+            if (view.getPositionForView(mAdapter.get) == view
+                    .getLastVisiblePosition())
+                scrollEnd = true;
+        } catch (Exception e) {
+            scrollEnd = false;
+        }
 
+        if (mState == STATE_NONE && scrollEnd) {
+            if (mAdapter.getState() == RecyclerBaseAapter.STATE_LOAD_MORE
+                    || mAdapter.getState() == RecyclerBaseAapter.STATE_NETWORK_ERROR) {
+                mCurrentPage++;
+                mState = STATE_LOADMORE;
+                requestData(false);
+                //mAdapter.setFooterViewLoading();
+            }
+        }
+    }*/
+
+            /**
+             * 把数据转换成序列化
+              */
     class ParserTask extends AsyncTask<Void, Void, String> {
 
         private final byte[] reponseData;
+        //是否转换失败
         private boolean parserError;
         private List<T> list;
 
@@ -557,7 +651,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             try {
                 ListEntity<T> data = parseList(new ByteArrayInputStream(
                         reponseData));
-                //new SaveCacheTask(getActivity(), data, getCacheKey()).execute();
+                new SaveCacheTask(getActivity(), data, getCacheKey()).execute();
                 list = data.getList();
                 if (list == null) {
                     ResultBean resultBean = XmlUtils.toBean(ResultBean.class,
@@ -577,75 +671,31 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-           /* if (parserError) {
+            if (parserError) {
+                //读取缓存数据
                 readCacheData(getCacheKey());
             } else {
+
                 executeOnLoadDataSuccess(list);
                 executeOnLoadFinish();
-            }*/
-
-            executeOnLoadDataSuccess(list);
-        }
-    }
-
-    @Override
-    public void onScrollStateChanged(AbsListView view, int scrollState) {
-        if (mAdapter == null || mAdapter.getItemCount() == 0) {
-            return;
-        }
-        // 数据已经全部加载，或数据为空时，或正在加载，不处理滚动事件
-        if (mState == STATE_LOADMORE || mState == STATE_REFRESH) {
-            return;
-        }
-        // 判断是否滚动到底部
-        boolean scrollEnd = false;
-       /* try {
-            if (view.getPositionForView(mAdapter.getFooterView()) == view
-                    .getLastVisiblePosition())
-                scrollEnd = true;
-        } catch (Exception e) {
-            scrollEnd = false;
-        }*/
-
-        if (mState == STATE_NONE && scrollEnd) {
-            if (mAdapter.getState() == RecyclerBaseAapter.STATE_LOAD_MORE
-                    || mAdapter.getState() == RecyclerBaseAapter.STATE_NETWORK_ERROR) {
-                mCurrentPage++;
-                mState = STATE_LOADMORE;
-                requestData(false);
-                //mAdapter.setFooterViewLoading();
             }
+
+            //executeOnLoadDataSuccess(list);
         }
-    }
 
-    @Override
-    public void onScroll(AbsListView view, int firstVisibleItem,
-            int visibleItemCount, int totalItemCount) {
-        // 数据已经全部加载，或数据为空时，或正在加载，不处理滚动事件
-        // if (mState == STATE_NOMORE || mState == STATE_LOADMORE
-        // || mState == STATE_REFRESH) {
-        // return;
-        // }
-        // if (mAdapter != null
-        // && mAdapter.getDataSize() > 0
-        // && mrecycleView.getLastVisiblePosition() == (mrecycleView.getCount() - 1))
-        // {
-        // if (mState == STATE_NONE
-        // && mAdapter.getState() == ListBaseAdapter.STATE_LOAD_MORE) {
-        // mState = STATE_LOADMORE;
-        // mCurrentPage++;
-        // requestData(true);
-        // }
-        // }
-    }
 
-    /**
-     * 保存已读的文章列表
-     * 
-     * @param view
-     * @param prefFileName
-     * @param key
-     */
+
+
+
+
+
+        /**
+         * 保存已读的文章列表
+         *
+         * @param view
+         * @param prefFileName
+         * @param key
+         */
    /* protected void saveToReadedList(final View view, final String prefFileName,
             final String key) {
         // 放入已读列表
@@ -655,4 +705,9 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             tvTitle.setTextColor(AppContext.getInstance().getResources().getColor(ThemeSwitchUtils.getTitleReadedColor()));
         }
     }*/
+
+
+
+    }
+
 }

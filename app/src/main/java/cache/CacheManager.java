@@ -1,5 +1,6 @@
 package cache;
 
+import android.content.Context;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,8 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import net.oschina.app.util.TDevice;
-import android.content.Context;
+import util.TDevice;
 
 public class CacheManager {
 

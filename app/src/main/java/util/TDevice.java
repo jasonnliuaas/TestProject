@@ -1,15 +1,5 @@
 package util;
 
-import java.io.File;
-import java.lang.reflect.Field;
-import java.text.NumberFormat;
-import java.util.List;
-import java.util.UUID;
-
-import net.oschina.app.AppContext;
-import net.oschina.app.R;
-import net.oschina.app.base.BaseApplication;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
@@ -33,12 +23,24 @@ import android.os.PowerManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+
+import com.hm.testproject.AppContext;
+import com.hm.testproject.R;
+
+import org.kymjs.kjframe.utils.StringUtils;
+
+import java.io.File;
+import java.lang.reflect.Field;
+import java.text.NumberFormat;
+import java.util.List;
+import java.util.UUID;
 
 @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class TDevice {
@@ -74,7 +76,7 @@ public class TDevice {
 
     public static int getDefaultLoadFactor() {
         if (_loadFactor == null) {
-            Integer integer = Integer.valueOf(0xf & BaseApplication.context()
+            Integer integer = Integer.valueOf(0xf & AppContext.context()
                     .getResources().getConfiguration().screenLayout);
             _loadFactor = integer;
             _loadFactor = Integer.valueOf(Math.max(integer.intValue(), 1));
@@ -90,7 +92,7 @@ public class TDevice {
 
     public static DisplayMetrics getDisplayMetrics() {
         DisplayMetrics displaymetrics = new DisplayMetrics();
-        ((WindowManager) BaseApplication.context().getSystemService(
+        ((WindowManager) AppContext.context().getSystemService(
                 Context.WINDOW_SERVICE)).getDefaultDisplay().getMetrics(
                 displaymetrics);
         return displaymetrics;
@@ -148,7 +150,7 @@ public class TDevice {
             obj = c.newInstance();
             field = c.getField("status_bar_height");
             x = Integer.parseInt(field.get(obj).toString());
-            return BaseApplication.context().getResources()
+            return AppContext.context().getResources()
                     .getDimensionPixelSize(x);
         } catch (Exception e) {
             e.printStackTrace();
@@ -157,9 +159,9 @@ public class TDevice {
     }
 
     public static String getUdid() {
-        String udid = BaseApplication.getPreferences().getString("udid", "");
+        String udid = AppContext.getPreferences().getString("udid", "");
         if (udid.length() == 0) {
-            SharedPreferences.Editor editor = BaseApplication.getPreferences()
+            SharedPreferences.Editor editor = AppContext.getPreferences()
                     .edit();
             udid = String.format("%s", UUID.randomUUID());
             editor.putString("udid", udid);
@@ -172,7 +174,7 @@ public class TDevice {
         boolean flag = true;
         if (_hasBigScreen == null) {
             boolean flag1;
-            if ((0xf & BaseApplication.context().getResources()
+            if ((0xf & AppContext.context().getResources()
                     .getConfiguration().screenLayout) >= 3)
                 flag1 = flag;
             else
@@ -190,7 +192,7 @@ public class TDevice {
 
     public static final boolean hasCamera() {
         if (_hasCamera == null) {
-            PackageManager pckMgr = BaseApplication.context()
+            PackageManager pckMgr = AppContext.context()
                     .getPackageManager();
             boolean flag = pckMgr
                     .hasSystemFeature("android.hardware.camera.front");
@@ -218,7 +220,7 @@ public class TDevice {
 
     public static boolean hasInternet() {
         boolean flag;
-        if (((ConnectivityManager) BaseApplication.context().getSystemService(
+        if (((ConnectivityManager) AppContext.context().getSystemService(
                 "connectivity")).getActiveNetworkInfo() != null)
             flag = true;
         else
@@ -242,12 +244,12 @@ public class TDevice {
 
     public static boolean isPackageExist(String pckName) {
         try {
-            PackageInfo pckInfo = BaseApplication.context().getPackageManager()
+            PackageInfo pckInfo = AppContext.context().getPackageManager()
                     .getPackageInfo(pckName, 0);
             if (pckInfo != null)
                 return true;
         } catch (NameNotFoundException e) {
-            TLog.error(e.getMessage());
+            //Log.Ee(e.getMessage());
         }
         return false;
     }
@@ -260,14 +262,14 @@ public class TDevice {
     public static void hideSoftKeyboard(View view) {
         if (view == null)
             return;
-        ((InputMethodManager) BaseApplication.context().getSystemService(
+        ((InputMethodManager) AppContext.context().getSystemService(
                 Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
                 view.getWindowToken(), 0);
     }
 
     public static boolean isLandscape() {
         boolean flag;
-        if (BaseApplication.context().getResources().getConfiguration().orientation == 2)
+        if (AppContext.context().getResources().getConfiguration().orientation == 2)
             flag = true;
         else
             flag = false;
@@ -276,7 +278,7 @@ public class TDevice {
 
     public static boolean isPortrait() {
         boolean flag = true;
-        if (BaseApplication.context().getResources().getConfiguration().orientation != 1)
+        if (AppContext.context().getResources().getConfiguration().orientation != 1)
             flag = false;
         return flag;
     }
@@ -284,7 +286,7 @@ public class TDevice {
     public static boolean isTablet() {
         if (_isTablet == null) {
             boolean flag;
-            if ((0xf & BaseApplication.context().getResources()
+            if ((0xf & AppContext.context().getResources()
                     .getConfiguration().screenLayout) >= 3)
                 flag = true;
             else
@@ -308,13 +310,13 @@ public class TDevice {
     }
 
     public static void showSoftKeyboard(View view) {
-        ((InputMethodManager) BaseApplication.context().getSystemService(
+        ((InputMethodManager) AppContext.context().getSystemService(
                 Context.INPUT_METHOD_SERVICE)).showSoftInput(view,
                 InputMethodManager.SHOW_FORCED);
     }
 
     public static void toogleSoftKeyboard(View view) {
-        ((InputMethodManager) BaseApplication.context().getSystemService(
+        ((InputMethodManager) AppContext.context().getSystemService(
                 Context.INPUT_METHOD_SERVICE)).toggleSoftInput(0,
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }
@@ -325,15 +327,15 @@ public class TDevice {
     }
 
     public static String getCurCountryLan() {
-        return BaseApplication.context().getResources().getConfiguration().locale
+        return AppContext.context().getResources().getConfiguration().locale
                 .getLanguage()
                 + "-"
-                + BaseApplication.context().getResources().getConfiguration().locale
+                + AppContext.context().getResources().getConfiguration().locale
                 .getCountry();
     }
 
     public static boolean isZhCN() {
-        String lang = BaseApplication.context().getResources()
+        String lang = AppContext.context().getResources()
                 .getConfiguration().locale.getCountry();
         if (lang.equalsIgnoreCase("CN")) {
             return true;
@@ -420,10 +422,10 @@ public class TDevice {
 
     public static PackageInfo getPackageInfo(String pckName) {
         try {
-            return BaseApplication.context().getPackageManager()
+            return AppContext.context().getPackageManager()
                     .getPackageInfo(pckName, 0);
         } catch (NameNotFoundException e) {
-            TLog.error(e.getMessage());
+            //TLog.error(e.getMessage());
         }
         return null;
     }
@@ -431,10 +433,10 @@ public class TDevice {
     public static int getVersionCode() {
         int versionCode = 0;
         try {
-            versionCode = BaseApplication
+            versionCode = AppContext
                     .context()
                     .getPackageManager()
-                    .getPackageInfo(BaseApplication.context().getPackageName(),
+                    .getPackageInfo(AppContext.context().getPackageName(),
                             0).versionCode;
         } catch (NameNotFoundException ex) {
             versionCode = 0;
@@ -445,7 +447,7 @@ public class TDevice {
     public static int getVersionCode(String packageName) {
         int versionCode = 0;
         try {
-            versionCode = BaseApplication.context().getPackageManager()
+            versionCode = AppContext.context().getPackageManager()
                     .getPackageInfo(packageName, 0).versionCode;
         } catch (NameNotFoundException ex) {
             versionCode = 0;
@@ -456,10 +458,10 @@ public class TDevice {
     public static String getVersionName() {
         String name = "";
         try {
-            name = BaseApplication
+            name = AppContext
                     .context()
                     .getPackageManager()
-                    .getPackageInfo(BaseApplication.context().getPackageName(),
+                    .getPackageInfo(AppContext.context().getPackageName(),
                             0).versionName;
         } catch (NameNotFoundException ex) {
             name = "";
@@ -468,7 +470,7 @@ public class TDevice {
     }
 
     public static boolean isScreenOn() {
-        PowerManager pm = (PowerManager) BaseApplication.context()
+        PowerManager pm = (PowerManager) AppContext.context()
                 .getSystemService(Context.POWER_SERVICE);
         return pm.isScreenOn();
     }
@@ -527,7 +529,7 @@ public class TDevice {
     }
 
     public static String getIMEI() {
-        TelephonyManager tel = (TelephonyManager) BaseApplication.context()
+        TelephonyManager tel = (TelephonyManager) AppContext.context()
                 .getSystemService(Context.TELEPHONY_SERVICE);
         return tel.getDeviceId();
     }
@@ -537,12 +539,12 @@ public class TDevice {
     }
 
     public static void openApp(Context context, String packageName) {
-        Intent mainIntent = BaseApplication.context().getPackageManager()
+        Intent mainIntent = AppContext.context().getPackageManager()
                 .getLaunchIntentForPackage(packageName);
         if (mainIntent == null) {
             mainIntent = new Intent(packageName);
         } else {
-            TLog.log("Action:" + mainIntent.getAction());
+            //TLog.log("Action:" + mainIntent.getAction());
         }
         context.startActivity(mainIntent);
     }
@@ -563,7 +565,7 @@ public class TDevice {
 
     public static boolean isWifiOpen() {
         boolean isWifiConnect = false;
-        ConnectivityManager cm = (ConnectivityManager) BaseApplication
+        ConnectivityManager cm = (ConnectivityManager) AppContext
                 .context().getSystemService(Context.CONNECTIVITY_SERVICE);
         // check the networkInfos numbers
         NetworkInfo[] networkInfos = cm.getAllNetworkInfo();
@@ -593,10 +595,10 @@ public class TDevice {
     public static void copyTextToBoard(String string) {
         if (TextUtils.isEmpty(string))
             return;
-        ClipboardManager clip = (ClipboardManager) BaseApplication.context()
+        ClipboardManager clip = (ClipboardManager) AppContext.context()
                 .getSystemService(Context.CLIPBOARD_SERVICE);
         clip.setText(string);
-        AppContext.showToast(R.string.copy_success);
+        AppContext.showToast("复制成功");
     }
 
     /**
@@ -633,7 +635,7 @@ public class TDevice {
             obj = c.newInstance();
             field = c.getField("status_bar_height");
             x = Integer.parseInt(field.get(obj).toString());
-            sbar = BaseApplication.context().getResources()
+            sbar = AppContext.context().getResources()
                     .getDimensionPixelSize(x);
 
         } catch (Exception e1) {
