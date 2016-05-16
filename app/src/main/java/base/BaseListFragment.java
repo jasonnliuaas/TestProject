@@ -40,6 +40,7 @@ import butterknife.InjectView;
 import cache.CacheManager;
 import cz.msebera.android.httpclient.Header;
 import it.gmariotti.recyclerview.adapter.SlideInBottomAnimatorAdapter;
+import ui.DividerItemDecoration;
 import ui.SpaceItemDecoration;
 import util.TDevice;
 import util.XmlUtils;
@@ -115,7 +116,9 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
                 R.color.swiperefresh_color3, R.color.swiperefresh_color4);
         final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         mrecycleView.setLayoutManager(manager);
-        mrecycleView.addItemDecoration(new SpaceItemDecoration(20));
+        mrecycleView.addItemDecoration(new DividerItemDecoration(getActivity(),
+                DividerItemDecoration.VERTICAL_LIST));
+        //mrecycleView.addItemDecoration(new SpaceItemDecoration(20));
         mrecycleView.setItemAnimator(new DefaultItemAnimator());
         if (mAdapter != null) {
             SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter, mrecycleView);
