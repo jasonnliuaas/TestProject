@@ -3,7 +3,13 @@ package base;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import com.hm.testproject.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +30,25 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     public static final int STATE_OTHER = 6;
     protected int mstate = STATE_LESS_ONE_PAGE;
     private int layoutId;
+    protected boolean ishasFoot = false;
+    protected boolean ishasHead = false;
+    protected View mFootview;
 
+    public boolean ishasFoot() {
+        return ishasFoot;
+    }
+
+    public void setIshasFoot(boolean ishasFoot) {
+        this.ishasFoot = ishasFoot;
+    }
+
+    public boolean ishasHead() {
+        return ishasHead;
+    }
+
+    public void setIshasHead(boolean ishasHead) {
+        this.ishasHead = ishasHead;
+    }
 
     public void addData(T t){
         this.mDatas.add(t);
@@ -48,6 +72,9 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     public  void initViewData(ViewHolder vh,T t){
 
     }
+    protected boolean isHasFoot(){
+        return true;
+    }
 
     public ArrayList<T> getmDatas() {
         return mDatas;
@@ -56,15 +83,6 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     public void setDatas(ArrayList mDatas) {
         this.mDatas = mDatas;
     }
-
-    public LayoutInflater getmInflater() {
-        return mInflater;
-    }
-
-    public void setmInflater(LayoutInflater mInflater) {
-        this.mInflater = mInflater;
-    }
-
     protected ArrayList<T> mDatas = new ArrayList<T>();
 
     public RecyclerBaseAapter(Context context) {
@@ -87,12 +105,68 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        if(position != getItemCount()-1 && isHasFoot())
         initViewData(holder,mDatas.get(position));
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if(position == getItemCount()-1 && isHasFoot()){
+            return getState();
+            }
+
+        return STATE_OTHER;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = getLayoutInflater(parent.getContext());
+            mFootview =  inflater.inflate(R.layout.list_cell_footer,null);
+            ProgressBar progressBar = (ProgressBar) mFootview.findViewById(R.id.progressbar);
+            TextView text = (TextView) mFootview.findViewById(R.id.text);
+            switch (viewType){
+                case STATE_LOAD_MORE:
+                    progressBar.setVisibility(View.VISIBLE);
+                    text.setText("正在加载····");
+                    break;
+                case STATE_NO_MORE:
+                    text.setText("没有更多了");
+                    progressBar.setVisibility(View.GONE);
+                    break;
+                case STATE_NETWORK_ERROR:
+                    text.setText("网络错误");
+                    progressBar.setVisibility(View.GONE);
+                    break;
+            }
+            return  new ViewHolder(mFootview);
+    }
+
+    @Override
     public int getItemCount() {
+        switch (getState()){
+            case STATE_NO_DATA:
+                return 1;
+            case STATE_LOAD_MORE:
+            case STATE_NO_MORE:
+            case STATE_EMPTY_ITEM:
+            case STATE_NETWORK_ERROR:
+                return mDatas.size() + 1;
+            case STATE_LESS_ONE_PAGE:
+                return mDatas.size();
+            default:
+                break;
+        }
         return mDatas.size();
     }
 
+
+    public void setFooterViewLoading(String message) {
+        ProgressBar progressbar = (ProgressBar) mFootview.findViewById(R.id.progressbar);
+        TextView text = (TextView) mFootview.findViewById(R.id.text);
+        text.setText(message);
+        progressbar.setVisibility(View.VISIBLE);
+    }
+    public void setFooterViewLoading() {
+        setFooterViewLoading("正在加载");
+    }
 }

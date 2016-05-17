@@ -8,14 +8,15 @@
         <item name="colorPrimary">@color/lightblue</item>
         <item name="colorPrimaryDark">@color/darker_blue</item>
         <item name="actionBarSize">50dp</item>
+        <item name="android:textColorPrimary">@color/white</item>
         <item name="colorAccent">@color/lightblue</item>
     </style>
+    
 
     <style name="myTab" parent="Widget.Design.TabLayout">
         <item name="tabBackground">?attr/colorPrimary</item>
         <item name="tabIndicatorColor">@color/darkblue</item>
         <item name="tabSelectedTextColor">@color/white</item>
-
     </style>
     <style name="fullline_view">
         <item name="android:layout_width">fill_parent</item>

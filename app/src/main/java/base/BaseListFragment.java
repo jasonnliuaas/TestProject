@@ -5,19 +5,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.hm.testproject.AppContext;
 import com.hm.testproject.R;
@@ -32,23 +26,22 @@ import java.util.List;
 
 import bean.Entity;
 import bean.ListEntity;
-import bean.News;
 import bean.Result;
 import bean.ResultBean;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cache.CacheManager;
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.impl.execchain.RetryExec;
 import it.gmariotti.recyclerview.adapter.SlideInBottomAnimatorAdapter;
 import ui.DividerItemDecoration;
-import ui.SpaceItemDecoration;
+import ui.empty.EmptyLayout;
 import util.TDevice;
 import util.XmlUtils;
 
 @SuppressLint("NewApi")
 public abstract class BaseListFragment<T extends Entity> extends BaseFragment
-        implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener
-        {
+        implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener {
     public static final String BUNDLE_KEY_CATALOG = "BUNDLE_KEY_CATALOG";
     public static final int STATE_NONE = 0;
     public static final int STATE_REFRESH = 1;
@@ -74,6 +67,8 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     protected int mCatalog = 1;
     // 错误信息
     protected Result mResult;
+    @InjectView(R.id.error_layout)
+    EmptyLayout errorLayout;
     private AsyncTask<String, Void, ListEntity<T>> mCacheTask;
     private ParserTask mParserTask;
 
@@ -87,6 +82,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
+        ButterKnife.inject(this, view);
         return view;
     }
 
@@ -131,23 +127,22 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             /**
              * 第一次请求数据
              */
-            requestData(false);
-            /*if (requestDataIfViewCreated()) {
-                //mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+            if (requestDataIfViewCreated()) {
+                errorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
                 mState = STATE_NONE;
                 requestData(false);
             } else {
-                mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-            }*/
+                errorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+            }
 
         }
         mrecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if(newState == RecyclerView.SCROLL_STATE_IDLE){
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     int lastVisiblePosition = manager.findLastVisibleItemPosition();
-                    if(lastVisiblePosition >= manager.getItemCount() - 1){
+                    if (lastVisiblePosition >= manager.getItemCount() - 1) {
                         if (mAdapter == null || mAdapter.getItemCount() == 0) {
                             return;
                         }
@@ -157,11 +152,12 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
                                 mCurrentPage++;
                                 mState = STATE_LOADMORE;
                                 requestData(false);
-                                //mAdapter.setFooterViewLoading();
-                            }
+                                mAdapter.setFooterViewLoading();
+                                }
+
                         }
                     }
-                    }
+                }
             }
 
             @Override
@@ -170,18 +166,22 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             }
         });
 
-        /*mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
+        errorLayout.setOnLayoutClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 mCurrentPage = 0;
                 mState = STATE_REFRESH;
-                mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
+                errorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
                 requestData(true);
             }
-        });*/
+        });
         mrecycleView.setItemAnimator(new DefaultItemAnimator());
 
+    }
+
+    private boolean requestDataIfViewCreated() {
+        return true;
     }
 
 
@@ -270,10 +270,11 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         super.onDestroy();
     }
 
-            /**
-             * 是否从网络读取数据
-             * @param refresh
-             */
+    /**
+     * 是否从网络读取数据
+     *
+     * @param refresh
+     */
     protected void requestData(boolean refresh) {
         String key = getCacheKey();
         if (isReadCacheData(refresh)) {
@@ -288,11 +289,9 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     /***
      * 判断是否需要读取缓存的数据
      *
-     * @author 火蚁 2015-2-10 下午2:41:02
-     *
-     * @return boolean
      * @param refresh
      * @return
+     * @author 火蚁 2015-2-10 下午2:41:02
      */
     protected boolean isReadCacheData(boolean refresh) {
         String key = getCacheKey();
@@ -365,7 +364,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
     /***
      * 自动刷新的时间
-     * <p>
+     * <p/>
      * 默认：自动刷新的时间为半天时间
      *
      * @return
@@ -398,6 +397,12 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.reset(this);
+    }
+
     private class CacheTask extends AsyncTask<String, Void, ListEntity<T>> {
         private final WeakReference<Context> mContext;
 
@@ -422,9 +427,19 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             if (list != null) {
                 executeOnLoadDataSuccess(list.getList());
             } else {
-                //executeOnLoadDataError(null);
+                executeOnLoadDataError(null);
             }
             executeOnLoadFinish();
+        }
+    }
+
+    private void executeOnLoadDataError(String  message){
+        if(mCurrentPage == 0 && !CacheManager.isExistDataCache(getActivity(),getCacheKey())){
+            errorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+        }else{
+            errorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+            mAdapter.setState(RecyclerBaseAapter.STATE_NETWORK_ERROR);
+            mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -477,8 +492,9 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         mParserTask = new ParserTask(data);
         mParserTask.execute();
     }
-    private void cancleParserTask(){
-        if (mParserTask != null){
+
+    private void cancleParserTask() {
+        if (mParserTask != null) {
             mParserTask.cancel(true);
             mParserTask = null;
         }
@@ -488,7 +504,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         if (data == null) {
             data = new ArrayList<T>();
         }
-
+        errorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         /*if (mResult != null && !mResult.OK()) {
             AppContext.showToast(mResult.getErrorMessage());
             // 注销登陆，密码已经修改，cookie，失效了
@@ -522,7 +538,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         if (mAdapter.getItemCount() == 1) {
 
             if (needShowEmptyNoData()) {
-                // mErrorLayout.setErrorType(EmptyLayout.NODATA);
+                 errorLayout.setErrorType(EmptyLayout.NODATA);
             } else {
                 mAdapter.setState(RecyclerBaseAapter.STATE_EMPTY_ITEM);
                 mAdapter.notifyDataSetChanged();
@@ -543,6 +559,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     protected String getCacheKeyPrefix() {
         return null;
     }
+
     private String getCacheKey() {
         return new StringBuilder(getCacheKeyPrefix()).append("_")
                 .append(mCurrentPage).toString();
@@ -635,9 +652,9 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }*/
 
-            /**
-             * 把数据转换成序列化
-              */
+    /**
+     * 把数据转换成序列化
+     */
     class ParserTask extends AsyncTask<Void, Void, String> {
 
         private final byte[] reponseData;
@@ -687,11 +704,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
 
 
-
-
-
-
-
         /**
          * 保存已读的文章列表
          *
@@ -708,7 +720,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             tvTitle.setTextColor(AppContext.getInstance().getResources().getColor(ThemeSwitchUtils.getTitleReadedColor()));
         }
     }*/
-
 
 
     }

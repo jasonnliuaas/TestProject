@@ -69,13 +69,6 @@ public class NewsAdapter extends RecyclerBaseAapter<News>{
     public int getItemCount() {
         return super.getItemCount();
     }
-    /**
-     * This class contains all butterknife-injected Views & Layouts from layout file 'layout_card_item.xml'
-     * for easy to all layout elements.
-     *
-     * @author ButterKnifeZelezny, plugin for Android Studio by Avast Developers (http://github.com/avast)
-     */
-
 
 
 
@@ -84,8 +77,12 @@ public class NewsAdapter extends RecyclerBaseAapter<News>{
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MyViewHolder viewHolder = new MyViewHolder(getLayoutInflater(parent.getContext()).inflate(R.layout.layout_card_item, null));
-        return viewHolder;
+        if(viewType != STATE_OTHER){
+          return   super.onCreateViewHolder(parent,viewType);
+        }else{
+            MyViewHolder viewHolder = new MyViewHolder(getLayoutInflater(parent.getContext()).inflate(R.layout.layout_card_item, null));
+            return viewHolder;
+        }
     }
 
 
