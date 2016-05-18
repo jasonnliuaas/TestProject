@@ -23,7 +23,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         mcontext = itemView.getContext();
     }
 
-    protected View getView(int viewId){
+    public View getView(int viewId){
         View view = views.get(viewId);
         if(view == null){
             view = cview.findViewById(viewId);

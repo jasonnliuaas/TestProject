@@ -12,6 +12,8 @@
         android:layout_height="wrap_content">
 
         <ProgressBar
+            android:indeterminateDuration="1000"
+            android:indeterminateOnly="true"
             android:id="@+id/progressbar"
             android:layout_width="20dip"
             android:layout_height="20dip"

@@ -15,7 +15,7 @@
 
     <style name="myTab" parent="Widget.Design.TabLayout">
         <item name="tabBackground">?attr/colorPrimary</item>
-        <item name="tabIndicatorColor">@color/darkblue</item>
+        <item name="tabIndicatorColor">@color/main_green</item>
         <item name="tabSelectedTextColor">@color/white</item>
     </style>
     <style name="fullline_view">

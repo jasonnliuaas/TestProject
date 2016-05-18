@@ -57,8 +57,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
     protected RecyclerBaseAapter<T> mAdapter;
 
-  /*  @InjectView(R.id.error_layout)
-    protected EmptyLayout mErrorLayout;*/
 
     protected int mStoreEmptyState = -1;
 
@@ -68,7 +66,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     // 错误信息
     protected Result mResult;
     @InjectView(R.id.error_layout)
-    EmptyLayout errorLayout;
+    protected EmptyLayout errorLayout;
     private AsyncTask<String, Void, ListEntity<T>> mCacheTask;
     private ParserTask mParserTask;
 
@@ -89,7 +87,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.inject(this, view);
         initView(view);
     }
 
@@ -184,71 +181,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         return true;
     }
 
-
-
-        /*if (mAdapter != null) {
-            mrecycleView.setAdapter(mAdapter);
-            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-        } else {
-            mAdapter = getListAdapter();
-            mrecycleView.setAdapter(mAdapter);
-
-            if (requestDataIfViewCreated()) {
-                mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
-                mState = STATE_NONE;
-                requestData(false);
-            } else {
-                mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-            }
-
-        }
-        if (mStoreEmptyState != -1) {
-            mErrorLayout.setErrorType(mStoreEmptyState);
-        }
-    }
-
-
-
-
-
-    protected abstract RecyclerBaseAapter<T> getListAdapter();
-
-
-
-    protected boolean requestDataIfViewCreated() {
-        return true;
-    }
-
-    protected String getCacheKeyPrefix() {
-        return null;
-    }
-
-
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,
-            long id) {}
-
-    private String getCacheKey() {
-        return new StringBuilder(getCacheKeyPrefix()).append("_")
-                .append(mCurrentPage).toString();
-    }
-
-    // 是否需要自动刷新
-    protected boolean needAutoRefresh() {
-        return true;
-    }
-
-    /***
-     * 获取列表数据
-     * 
-     * 
-     * @author 火蚁 2015-2-9 下午3:16:12
-     * 
-     * @return void
-     * @param refresh
-     */
-
     // 下拉刷新数据
     @Override
     public void onRefresh() {
@@ -320,47 +252,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     protected ListEntity<T> readList(Serializable seri) {
         return null;
     }
-/*
-
-    */
-/***
- * 判断是否需要读取缓存的数据
- *
- * @author 火蚁 2015-2-10 下午2:41:02
- *
- * @return boolean
- * @param refresh
- * @return
- *//*
-
-    protected boolean isReadCacheData(boolean refresh) {
-        String key = getCacheKey();
-        if (!TDevice.hasInternet()) {
-            return true;
-        }
-        // 第一页若不是主动刷新，缓存存在，优先取缓存的
-        if (CacheManager.isExistDataCache(getActivity(), key) && !refresh
-                && mCurrentPage == 0) {
-            return true;
-        }
-        // 其他页数的，缓存存在以及还没有失效，优先取缓存的
-        if (CacheManager.isExistDataCache(getActivity(), key)
-                && !CacheManager.isCacheDataFailure(getActivity(), key)
-                && mCurrentPage != 0) {
-            return true;
-        }
-
-        return false;
-    }
-
-    // 是否到时间去刷新数据了
-    private boolean onTimeRefresh() {
-        String lastRefreshTime = AppContext.getLastRefreshTime(getCacheKey());
-        String currTime = StringUtils.getCurTimeStr();
-        long diff = StringUtils.calDateDifferent(lastRefreshTime, currTime);
-        return needAutoRefresh() && diff > getAutoRefreshTime();
-    }
-*/
 
     /***
      * 自动刷新的时间

@@ -10,11 +10,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hm.testproject.R;
+import com.ta.utdid2.android.utils.StringUtils;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import bean.Entity;
+import util.TDevice;
 import viewholder.ViewHolder;
 
 /**
@@ -105,8 +109,44 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        if(position != getItemCount()-1 && isHasFoot())
-        initViewData(holder,mDatas.get(position));
+        if (getItemViewType(position) == STATE_OTHER) {
+
+            initViewData(holder, mDatas.get(position));
+        } else {
+            ProgressBar progressBar = (ProgressBar) holder.getView(R.id.progressbar);
+            TextView text = (TextView) holder.getView(R.id.text);
+            switch (getState()) {
+                case STATE_LOAD_MORE:
+                    setFooterViewLoading();
+                    break;
+                case STATE_NO_MORE:
+                    mFootview.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                    text.setVisibility(View.VISIBLE);
+                    text.setText("已加载全部");
+                    break;
+                case STATE_EMPTY_ITEM:
+                    progressBar.setVisibility(View.GONE);
+                    mFootview.setVisibility(View.VISIBLE);
+                    text.setText("暂无数据");
+                    break;
+                case STATE_NETWORK_ERROR:
+                    mFootview.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                    text.setVisibility(View.VISIBLE);
+                    if (TDevice.hasInternet()) {
+                        text.setText("加载出错了");
+                    } else {
+                        text.setText("没有可用的网络");
+                    }
+                    break;
+                default:
+                    progressBar.setVisibility(View.GONE);
+                    mFootview.setVisibility(View.GONE);
+                    text.setVisibility(View.GONE);
+                    break;
+            }
+        }
     }
 
     @Override
@@ -122,24 +162,10 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = getLayoutInflater(parent.getContext());
             mFootview =  inflater.inflate(R.layout.list_cell_footer,null);
-            ProgressBar progressBar = (ProgressBar) mFootview.findViewById(R.id.progressbar);
-            TextView text = (TextView) mFootview.findViewById(R.id.text);
-            switch (viewType){
-                case STATE_LOAD_MORE:
-                    progressBar.setVisibility(View.VISIBLE);
-                    text.setText("正在加载····");
-                    break;
-                case STATE_NO_MORE:
-                    text.setText("没有更多了");
-                    progressBar.setVisibility(View.GONE);
-                    break;
-                case STATE_NETWORK_ERROR:
-                    text.setText("网络错误");
-                    progressBar.setVisibility(View.GONE);
-                    break;
-            }
             return  new ViewHolder(mFootview);
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -160,13 +186,33 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     }
 
 
-    public void setFooterViewLoading(String message) {
-        ProgressBar progressbar = (ProgressBar) mFootview.findViewById(R.id.progressbar);
-        TextView text = (TextView) mFootview.findViewById(R.id.text);
-        text.setText(message);
-        progressbar.setVisibility(View.VISIBLE);
-    }
+
     public void setFooterViewLoading() {
         setFooterViewLoading("正在加载");
+    }
+
+    public void setFooterViewLoading(String loadMsg) {
+        ProgressBar progress = (ProgressBar) mFootview
+                .findViewById(R.id.progressbar);
+        TextView text = (TextView) mFootview.findViewById(R.id.text);
+        mFootview.setVisibility(View.VISIBLE);
+        progress.setVisibility(View.VISIBLE);
+        text.setVisibility(View.VISIBLE);
+        if (StringUtils.isEmpty(loadMsg)) {
+            text.setText("正在加载···");
+        } else {
+            text.setText(loadMsg);
+        }
+    }
+
+
+    public void setFooterViewText(String msg) {
+        ProgressBar progress = (ProgressBar) mFootview
+                .findViewById(R.id.progressbar);
+        TextView text = (TextView) mFootview.findViewById(R.id.text);
+        mFootview.setVisibility(View.VISIBLE);
+        progress.setVisibility(View.GONE);
+        text.setVisibility(View.VISIBLE);
+        text.setText(msg);
     }
 }

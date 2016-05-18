@@ -16,6 +16,7 @@ import base.RecyclerBaseAapter;
 import bean.News;
 import bean.NewsList;
 import http.TestApi;
+import ui.empty.EmptyLayout;
 import util.XmlUtils;
 
 /**
@@ -84,7 +85,7 @@ public class NewsFragment extends BaseListFragment<News> {
     protected void executeOnLoadDataSuccess(List<News> data) {
         if (mCatalog == NewsList.CATALOG_WEEK
                 || mCatalog == NewsList.CATALOG_MONTH) {
-            //mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+            errorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
             if (mState == STATE_REFRESH)
                 mAdapter.clear();
             mAdapter.addData(data);

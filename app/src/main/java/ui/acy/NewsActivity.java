@@ -71,10 +71,10 @@ public class NewsActivity extends BaseActiviy {
     public void initWidget() {
         this.setSupportActionBar(toolbar);
         fa = new ViewPagerAdapter(getSupportFragmentManager(),this);
-        fa.addTab("page王", "news", NewsFragment.class,
+        fa.addTab("咨询", "news", NewsFragment.class,
                 getBundle(NewsList.CATALOG_ALL));
-        fa.addTab("page图", "news_week", NewsFragment.class,
-                getBundle(NewsList.CATALOG_ALL));/*
+        fa.addTab("热点", "news_week", NewsFragment.class,
+                getBundle(NewsList.CATALOG_WEEK));/*
         fa.addTab("page霸", "news", NewsFragment.class,
                 getBundle(NewsList.CATALOG_ALL));
         fa.addTab("page业", "news_week", NewsFragment.class,
