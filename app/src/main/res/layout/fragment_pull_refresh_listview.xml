@@ -15,7 +15,8 @@
             android:id="@+id/recycleview"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:background="#DADADA"
+            android:background="#DADA"
+
             android:scrollbars="none"
             android:scrollingCache="true" />
     </android.support.v4.widget.SwipeRefreshLayout>
