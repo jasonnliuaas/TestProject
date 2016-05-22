@@ -99,9 +99,13 @@ public class CacheManager {
 	if (context == null)
 	    return false;
 	boolean exist = false;
-	File data = context.getFileStreamPath(cachefile);
-	if (data.exists())
-	    exist = true;
+		try {
+			File data = context.getFileStreamPath(cachefile);
+			if (data.exists())
+				exist = true;
+		}catch (Exception e){
+			return false;
+		}
 	return exist;
     }
 

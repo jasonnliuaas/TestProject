@@ -19,6 +19,10 @@ public class ApiHttpClient {
 
     public final static String HOST = "www.oschina.net";
     private static String API_URL = "http://www.oschina.net/%s";
+
+    public final static String HOST2 = "qt.qq.com";
+    private static String API_URL2 = "http://qt.qq.com/%s";
+
 //    public final static String HOST = "192.168.1.101";
 //    private static String API_URL = "http://192.168.1.101/%s";
     public static final String DELETE = "DELETE";
@@ -54,9 +58,21 @@ public class ApiHttpClient {
         log(new StringBuilder("GET ").append(partUrl).toString());
     }
 
+    public static void get2(String partUrl, AsyncHttpResponseHandler handler) {
+        client.get(getAbsoluteApiUrl2(partUrl), handler);
+        log(new StringBuilder("GET ").append(partUrl).toString());
+    }
+
     public static void get(String partUrl, RequestParams params,
                            AsyncHttpResponseHandler handler) {
         client.get(getAbsoluteApiUrl(partUrl), params, handler);
+        log(new StringBuilder("GET ").append(partUrl).append("&")
+                .append(params).toString());
+    }
+
+    public static void get2(String partUrl, RequestParams params,
+                           AsyncHttpResponseHandler handler) {
+        client.get(getAbsoluteApiUrl2(partUrl), params, handler);
         log(new StringBuilder("GET ").append(partUrl).append("&")
                 .append(params).toString());
     }
@@ -65,6 +81,15 @@ public class ApiHttpClient {
         String url = partUrl;
         if (!partUrl.startsWith("http:") && !partUrl.startsWith("https:")) {
             url = String.format(API_URL, partUrl);
+        }
+        Log.d("BASE_CLIENT", "request:" + url);
+        return url;
+    }
+
+    public static String getAbsoluteApiUrl2(String partUrl) {
+        String url = partUrl;
+        if (!partUrl.startsWith("http:") && !partUrl.startsWith("https:")) {
+            url = String.format(API_URL2, partUrl);
         }
         Log.d("BASE_CLIENT", "request:" + url);
         return url;
@@ -88,7 +113,19 @@ public class ApiHttpClient {
         log(new StringBuilder("POST ").append(partUrl).toString());
     }
 
+    public static void post2(String partUrl, AsyncHttpResponseHandler handler) {
+        client.post(getAbsoluteApiUrl(partUrl), handler);
+        log(new StringBuilder("POST ").append(partUrl).toString());
+    }
+
     public static void post(String partUrl, RequestParams params,
+                            AsyncHttpResponseHandler handler) {
+        client.post(getAbsoluteApiUrl(partUrl), params, handler);
+        log(new StringBuilder("POST ").append(partUrl).append("&")
+                .append(params).toString());
+    }
+
+    public static void post2(String partUrl, RequestParams params,
                             AsyncHttpResponseHandler handler) {
         client.post(getAbsoluteApiUrl(partUrl), params, handler);
         log(new StringBuilder("POST ").append(partUrl).append("&")

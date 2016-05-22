@@ -10,7 +10,7 @@ import java.util.List;
  * 
  * @author 火蚁(http://my.oschina.net/u/253900)
  *
- * @data 2015-3-26 下午4:23:32
+ * @data 2015-cb-26 下午4:23:32
  */
 @SuppressWarnings("serial")
 @XStreamAlias("oschina")

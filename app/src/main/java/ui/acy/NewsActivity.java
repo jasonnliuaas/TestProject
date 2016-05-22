@@ -27,7 +27,9 @@ import bean.News;
 import bean.NewsList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import fragment.GameNewsListFragment;
 import fragment.NewsFragment;
+import http.TestApi;
 
 public class NewsActivity extends BaseActiviy {
 
@@ -37,8 +39,6 @@ public class NewsActivity extends BaseActiviy {
     @InjectView(R.id.pager)
     ViewPager pager;
     ViewPagerAdapter fa;
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,12 +69,12 @@ public class NewsActivity extends BaseActiviy {
     }
     @Override
     public void initWidget() {
-        this.setSupportActionBar(toolbar);
+        //this.setSupportActionBar(toolbar);
         fa = new ViewPagerAdapter(getSupportFragmentManager(),this);
-        fa.addTab("咨询", "news", NewsFragment.class,
+        fa.addTab("资讯", "news", NewsFragment.class,
                 getBundle(NewsList.CATALOG_ALL));
-        fa.addTab("热点", "news_week", NewsFragment.class,
-                getBundle(NewsList.CATALOG_WEEK));/*
+        fa.addTab("新闻", "zm_news", GameNewsListFragment.class,
+                getBundle(12));/*
         fa.addTab("page霸", "news", NewsFragment.class,
                 getBundle(NewsList.CATALOG_ALL));
         fa.addTab("page业", "news_week", NewsFragment.class,

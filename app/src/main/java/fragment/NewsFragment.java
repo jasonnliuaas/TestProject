@@ -1,5 +1,6 @@
 package fragment;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -35,7 +36,21 @@ public class NewsFragment extends BaseListFragment<News> {
     protected NewsAdapter getListAdapter() {
         return new NewsAdapter();
     }
+
+
+
 */
+
+    @Override
+    protected void returnFrist() {
+        mCurrentPage = 0;
+    }
+
+    @Override
+    protected String getCacheKey() {
+        return new StringBuilder(getCacheKeyPrefix()).append("_")
+                .append(mCurrentPage).toString();
+    }
 
     @Override
     protected NewsAdapter getRecyclerAdapter() {
@@ -48,7 +63,7 @@ public class NewsFragment extends BaseListFragment<News> {
     }
 
     @Override
-    protected NewsList parseList(InputStream is) throws Exception {
+    protected NewsList parseList(InputStream is,byte[] data) throws Exception {
         NewsList list = null;
         try {
             list = XmlUtils.toBean(NewsList.class, is);
@@ -56,6 +71,39 @@ public class NewsFragment extends BaseListFragment<News> {
             list = new NewsList();
         }
         return list;
+    }
+
+    @Override
+    public void initView(View view) {
+        super.initView(view);
+        setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    int lastVisiblePosition = manager.findLastVisibleItemPosition();
+                    if (lastVisiblePosition >= manager.getItemCount() - 1) {
+                        if (mAdapter == null || mAdapter.getItemCount() == 0) {
+                            return;
+                        }
+                        if (mState == STATE_NONE) {
+                            if (mAdapter.getState() == RecyclerBaseAapter.STATE_LOAD_MORE
+                                    || mAdapter.getState() == RecyclerBaseAapter.STATE_NETWORK_ERROR) {
+                                mCurrentPage++;
+                                mState = STATE_LOADMORE;
+                                requestData(false);
+                                mAdapter.setFooterViewLoading();
+                            }
+
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
     }
 
     @Override
@@ -105,5 +153,10 @@ public class NewsFragment extends BaseListFragment<News> {
             return 2 * 60 * 60;
         }
         return super.getAutoRefreshTime();
+    }
+
+    @Override
+    protected boolean isFrist() {
+        return mCurrentPage == 0;
     }
 }

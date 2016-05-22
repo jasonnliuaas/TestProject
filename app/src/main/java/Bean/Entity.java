@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * 
  * @author liux (http://my.oschina.net/liux)
  * @version 1.0
- * @created 2012-3-21
+ * @created 2012-cb-21
  */
 @SuppressWarnings("serial")
 public abstract class Entity extends Base {

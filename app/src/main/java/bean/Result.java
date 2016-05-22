@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 
  * @author liux (http://my.oschina.net/liux)
  * @version 1.0
- * @created 2012-3-21
+ * @created 2012-cb-21
  */
 @SuppressWarnings("serial")
 @XStreamAlias("result")

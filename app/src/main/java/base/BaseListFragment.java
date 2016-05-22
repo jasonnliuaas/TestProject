@@ -56,7 +56,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     protected RecyclerView mrecycleView;
 
     protected RecyclerBaseAapter<T> mAdapter;
-
+    protected RecyclerView.OnScrollListener onScrollListener;
 
     protected int mStoreEmptyState = -1;
 
@@ -69,6 +69,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     protected EmptyLayout errorLayout;
     private AsyncTask<String, Void, ListEntity<T>> mCacheTask;
     private ParserTask mParserTask;
+    protected final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
 
 
     @Override
@@ -107,7 +108,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.swiperefresh_color1, R.color.swiperefresh_color2,
                 R.color.swiperefresh_color3, R.color.swiperefresh_color4);
-        final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+
         mrecycleView.setLayoutManager(manager);
         mrecycleView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL_LIST));
@@ -133,35 +134,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             }
 
         }
-        mrecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    int lastVisiblePosition = manager.findLastVisibleItemPosition();
-                    if (lastVisiblePosition >= manager.getItemCount() - 1) {
-                        if (mAdapter == null || mAdapter.getItemCount() == 0) {
-                            return;
-                        }
-                        if (mState == STATE_NONE) {
-                            if (mAdapter.getState() == RecyclerBaseAapter.STATE_LOAD_MORE
-                                    || mAdapter.getState() == RecyclerBaseAapter.STATE_NETWORK_ERROR) {
-                                mCurrentPage++;
-                                mState = STATE_LOADMORE;
-                                requestData(false);
-                                mAdapter.setFooterViewLoading();
-                                }
-
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
 
         errorLayout.setOnLayoutClickListener(new View.OnClickListener() {
 
@@ -177,6 +149,11 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
     }
 
+    public void setOnScrollListener(RecyclerView.OnScrollListener onScrollListener) {
+        this.onScrollListener = onScrollListener;
+        mrecycleView.addOnScrollListener(this.onScrollListener);
+    }
+
     private boolean requestDataIfViewCreated() {
         return true;
     }
@@ -190,7 +167,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         // 设置顶部正在刷新
         // mrecycleView.setSelection(0);
         setSwipeRefreshLoadingState();
-        mCurrentPage = 0;
+        returnFrist();
         mState = STATE_REFRESH;
         requestData(true);
     }
@@ -218,6 +195,10 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         //sendRequestData();
     }
 
+    protected boolean isFrist(){
+        return true;
+    }
+
     /***
      * 判断是否需要读取缓存的数据
      *
@@ -232,20 +213,20 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
         // 第一页若不是主动刷新，缓存存在，优先取缓存的
         if (CacheManager.isExistDataCache(getActivity(), key) && !refresh
-                && mCurrentPage == 0) {
+                && isFrist()) {
             return true;
         }
         // 其他页数的，缓存存在以及还没有失效，优先取缓存的
         if (CacheManager.isExistDataCache(getActivity(), key)
                 && !CacheManager.isCacheDataFailure(getActivity(), key)
-                && mCurrentPage != 0) {
+                && isFrist()) {
             return true;
         }
 
         return false;
     }
 
-    protected ListEntity<T> parseList(InputStream is) throws Exception {
+    protected ListEntity<T> parseList(InputStream is,byte[] data) throws Exception {
         return null;
     }
 
@@ -325,7 +306,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     }
 
     private void executeOnLoadDataError(String  message){
-        if(mCurrentPage == 0 && !CacheManager.isExistDataCache(getActivity(),getCacheKey())){
+        if(isFrist() && !CacheManager.isExistDataCache(getActivity(),getCacheKey())){
             errorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
         }else{
             errorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
@@ -352,12 +333,14 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
+
+
     protected AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler() {
 
         @Override
         public void onSuccess(int statusCode, Header[] headers,
                               byte[] responseBytes) {
-            if (mCurrentPage == 0) {
+            if (isFrist()) {
                 /*AppContext.putToLastRefreshTime(getCacheKey(),
                         StringUtils.getCurTimeStr());*/
             }
@@ -403,21 +386,21 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }*/
 
         //mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-        if (mCurrentPage == 0) {
+        if (isFrist()) {
             mAdapter.clear();
         }
 
-        for (int i = 0; i < data.size(); i++) {
+        /*for (int i = 0; i < data.size(); i++) {
             if (compareTo(mAdapter.getmDatas(), data.get(i))) {
                 data.remove(i);
                 i--;
             }
-        }
+        }*/
         int adapterState = RecyclerBaseAapter.STATE_EMPTY_ITEM;
         if ((mAdapter.getItemCount() + data.size()) == 0) {
             adapterState = RecyclerBaseAapter.STATE_EMPTY_ITEM;
         } else if (data.size() == 0
-                || (data.size() < getPageSize() && mCurrentPage == 0)) {
+                || (data.size() < getPageSize() && isFrist())) {
             adapterState = RecyclerBaseAapter.STATE_NO_MORE;
             mAdapter.notifyDataSetChanged();
         } else {
@@ -451,7 +434,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         return null;
     }
 
-    private String getCacheKey() {
+    protected String getCacheKey() {
         return new StringBuilder(getCacheKeyPrefix()).append("_")
                 .append(mCurrentPage).toString();
     }
@@ -466,6 +449,10 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             }
         }
         return false;
+    }
+
+    protected void returnFrist(){
+
     }
 
     protected int getPageSize() {
@@ -561,7 +548,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         protected String doInBackground(Void... params) {
             try {
                 ListEntity<T> data = parseList(new ByteArrayInputStream(
-                        reponseData));
+                        reponseData),reponseData);
                 new SaveCacheTask(getActivity(), data, getCacheKey()).execute();
                 list = data.getList();
                 if (list == null) {
@@ -614,5 +601,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
 
     }
+
 
 }

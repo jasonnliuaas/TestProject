@@ -13,6 +13,17 @@ import java.io.FileNotFoundException;
 import java.net.URLEncoder;
 
 public class TestApi {
+    public static final int GET_ROTATION = 13;
+    public static final int GET_ACTIVE = 23;
+    public static final int GET_FUN = 18;
+    public static final String GET_TITLES ="index.js";
+    public static final String INDEX_URL = "static/pages/news/phone/";
+
+    public static String getPages(int id){
+        return  "c"+id+"_list_1.shtml";
+    }
+
+
 
     /**
      * 登陆
@@ -31,6 +42,10 @@ public class TestApi {
         ApiHttpClient.post(loginurl, params, handler);
     }
 
+    public static void getZmNewsList(String url,AsyncHttpResponseHandler handler){
+        ApiHttpClient.get2(INDEX_URL+url,handler);
+    }
+
     public static void openIdLogin(String s) {
 
     }
@@ -39,7 +54,7 @@ public class TestApi {
      * 获取新闻列表
      *
      * @param catalog
-     *            类别 （1，2，3）
+     *            类别 （1，2，cb）
      * @param page
      *            第几页
      * @param handler
@@ -177,7 +192,7 @@ public class TestApi {
      * @param uid
      *            指定用户UID
      * @param type
-     *            收藏类型: 0:全部收藏　1:软件　2:话题　3:博客　4:新闻　5:代码
+     *            收藏类型: 0:全部收藏　1:软件　2:话题　cb:博客　4:新闻　5:代码
      * @param page
      * @param handler
      */
@@ -491,7 +506,7 @@ public class TestApi {
      * @param objid
      *            比如是新闻ID 或者问答ID 或者动弹ID
      * @param type
-     *            1:软件 2:话题 3:博客 4:新闻 5:代码
+     *            1:软件 2:话题 cb:博客 4:新闻 5:代码
      */
     public static void addFavorite(int uid, int objid, int type,
             AsyncHttpResponseHandler handler) {
@@ -576,7 +591,7 @@ public class TestApi {
      * 
      * @param uid
      * @param type
-     *            1:@我的信息 2:未读消息 3:评论个数 4:新粉丝个数
+     *            1:@我的信息 2:未读消息 cb:评论个数 4:新粉丝个数
      * @return
      * @throws AppException
      *//*
@@ -960,7 +975,7 @@ public class TestApi {
     /***
      * 客户端扫描二维码登陆
      * 
-     * @author 火蚁 2015-3-13 上午11:45:47
+     * @author 火蚁 2015-cb-13 上午11:45:47
      * 
      * @return void
      * @param url

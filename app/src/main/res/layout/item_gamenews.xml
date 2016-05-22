@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            >
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/cb"
+                android:id="@+id/iv_tip"
+                android:scaleType="centerCrop"
+                />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/list_text_title"
+                android:textColor="#111111"
+                android:padding="5dp"
+                android:text="且随疾风前行"
+                android:gravity="start"
+                android:id="@+id/tv_title"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="19dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/tv_description"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:padding="5dp"
+                    android:layout_below="@+id/tv_title"
+                    style="@style/list_text_info"
+                    android:textSize="14sp"
+                    android:text="欢迎使用汉只需要在内容源文本框中输入汉字、unicode汉字编码、十六进制汉字编码即可转换为相应内容。"
+                    android:layout_height="wrap_content" />
+        <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tv_time"
+        android:text="2天前"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        style="@style/list_text_info"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right" />
+
+    </RelativeLayout>
+</LinearLayout>
