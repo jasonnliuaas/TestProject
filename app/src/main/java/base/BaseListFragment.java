@@ -113,15 +113,15 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         mrecycleView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL_LIST));
         //mrecycleView.addItemDecoration(new SpaceItemDecoration(20));
-        mrecycleView.setItemAnimator(new DefaultItemAnimator());
+        //mrecycleView.setItemAnimator(new DefaultItemAnimator());
         if (mAdapter != null) {
-            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter, mrecycleView);
-            mrecycleView.setAdapter(slideInBottomAnimatorAdapter);
+            //SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter, mrecycleView);
+            mrecycleView.setAdapter(mAdapter);
             //mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
         } else {
             mAdapter = getRecyclerAdapter();
-            SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter, mrecycleView);
-            mrecycleView.setAdapter(slideInBottomAnimatorAdapter);
+            //SlideInBottomAnimatorAdapter slideInBottomAnimatorAdapter = new SlideInBottomAnimatorAdapter(mAdapter, mrecycleView);
+            mrecycleView.setAdapter(mAdapter);
             /**
              * 第一次请求数据
              */

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@+id/img" android:src="@mipmap/cb" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:layout_centerInParent="true" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/news_slideshow_bg" android:paddingLeft="10.0dip" android:paddingTop="5.0dip" android:paddingRight="90.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignBottom="@id/img">
+        <TextView android:id="@+id/news_flag" style="@style/NewsFlag" />
+        <TextView android:textSize="15.0sp" android:text="好消息好消息" android:textColor="#ff363938" android:ellipsize="end" android:id="@+id/title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:singleLine="true" android:layout_weight="1.0" />
+    </LinearLayout>
+</RelativeLayout>

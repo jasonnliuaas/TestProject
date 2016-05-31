@@ -11,8 +11,18 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="colorAccent">@color/lightblue</item>
     </style>
-    
 
+    <style name="NewsFlag">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingLeft">5.0dip</item>
+        <item name="android:paddingTop">1.0dip</item>
+        <item name="android:paddingRight">5.0dip</item>
+        <item name="android:paddingBottom">1.0dip</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
     <style name="myTab" parent="Widget.Design.TabLayout">
         <item name="tabBackground">?attr/colorPrimary</item>
         <item name="tabIndicatorColor">@color/main_green</item>
@@ -22,7 +32,28 @@
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="NewsItemTitleText">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/news_list_item_title</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+    </style>
+    <style name="base_list_desc_style">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#ff808080</item>
+    </style>
 
+    <style name="NewsSummaryItemTime">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">@color/news_time_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+    </style>
     <style name="wrap_wrap">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="chat_info_grid_columns">4</integer>
+    <integer name="match_search_team_columns">3</integer>
+    <integer name="news_summary_word_num">22</integer>
+    <integer name="search_panel_team_columns">2</integer>
+    <integer name="sns_nick_name_max">10</integer>
+    <integer name="__leak_canary_max_stored_leaks">500</integer>
+    <integer name="default_circle_indicator_orientation">0</integer>
+    <integer name="default_fiv_duration">500</integer>
+    <integer name="default_fiv_rotations">2</integer>
+    <integer name="default_title_indicator_footer_indicator_style">2</integer>
+    <integer name="default_title_indicator_line_position">0</integer>
+    <integer name="default_underline_indicator_fade_delay">300</integer>
+    <integer name="default_underline_indicator_fade_length">400</integer>
+    <integer name="discuss_msg_max_user_name">8</integer>
+    <integer name="list_remove_item_ani_during">500</integer>
+</resources>

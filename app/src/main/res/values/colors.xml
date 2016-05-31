@@ -18,7 +18,14 @@
     <color name="grayslate">#708090</color>
     <color name="lightblue">#0083FF</color>
     <color name="darkblue">#294fa1</color>
-    
+    <color name="line">#ffdbdbdb</color>
+    <color name="find_list_itembg">#ffd9d9d9</color>
+    <color name="listview_background">#fff4f4f6</color>
+    <color name="newmatch_item_bg">@color/white</color>
+    <color name="news_list_bg">#ffe0e0e0</color>
+    <color name="news_list_item_title">#ff121212</color>
+    <color name="news_list_item_title_readed">#ff707070</color>
+    <color name="news_time_color">#ffb4b4b4</color>
     <color name="main_green">#40AA53</color>
     <color name="main_gray">#9A9A9A</color>
     <color name="main_black">#333</color>

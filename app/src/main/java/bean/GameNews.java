@@ -34,13 +34,13 @@ public class GameNews extends Entity{
     private String insert_date;
     private String publication_date;
     private String is_direct;
-    private String is_top;
+    private boolean is_top;
     private String article_url;
     private String title;
     private String image_url_small;
     private String image_url_big;
     private String image_spec;
-    private String image_with_btn;
+    private boolean image_with_btn;
     private String score;
     private String summary;
     private String targetid;
@@ -98,11 +98,11 @@ public class GameNews extends Entity{
         this.is_direct = is_direct;
     }
 
-    public String getIs_top() {
+    public boolean getIs_top() {
         return is_top;
     }
 
-    public void setIs_top(String is_top) {
+    public void setIs_top(boolean is_top) {
         this.is_top = is_top;
     }
 
@@ -146,11 +146,11 @@ public class GameNews extends Entity{
         this.image_spec = image_spec;
     }
 
-    public String getImage_with_btn() {
+    public boolean getImage_with_btn() {
         return image_with_btn;
     }
 
-    public void setImage_with_btn(String image_with_btn) {
+    public void setImage_with_btn(boolean image_with_btn) {
         this.image_with_btn = image_with_btn;
     }
 
