@@ -42,7 +42,7 @@
               android:layout_marginLeft="8.0dip"
               android:layout_marginRight="11.0dip"
               android:maxLines="2"
-              android:maxLength="@integer/news_summary_word_num"
+              android:maxLength="28"
               android:layout_toRightOf="@id/head_iv"
               android:layout_below="@id/title"
               android:layout_alignBottom="@id/head_iv"

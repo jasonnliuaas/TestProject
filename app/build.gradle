@@ -7,6 +7,7 @@ android {
     defaultConfig {
         applicationId "com.hm.testproject"
         minSdkVersion 16
+
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -32,6 +33,7 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.joanzapata.android:android-iconify:1.0.9'
     compile 'com.android.support:support-v4:23.cb.0'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
     compile project(':RecycleviewAnimationiLibrary')
     compile project(':PushSDK')
     compile 'com.google.code.gson:gson:2.2.4'

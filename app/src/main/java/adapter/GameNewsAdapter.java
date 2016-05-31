@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.hm.testproject.R;
 
 import org.kymjs.kjframe.KJBitmap;
@@ -27,15 +28,17 @@ import viewholder.ViewHolder;
  */
 public class GameNewsAdapter extends RecyclerBaseAapter<GameNews> {
 
-
+    public Context context;
 
     public GameNewsAdapter(Context context) {
         super(context);
+        this.context = context;
     }
 
     public GameNewsAdapter(Context context, int layoutid) {
         super(context, layoutid);
         this.mDatas = new ArrayList<GameNews>();
+        this.context = context;
     }
 
     @Override
@@ -55,8 +58,9 @@ public class GameNewsAdapter extends RecyclerBaseAapter<GameNews> {
             }else{
                 ((GameNewsViewHolder) vh).newsSignVideo.setVisibility(View.GONE);
             }
-            KJBitmap kjbitmap = new KJBitmap();
-            kjbitmap.display(((GameNewsViewHolder) vh).headIv,gameNews.getImage_url_small());
+            Glide.with(context).load(gameNews.getImage_url_small()).into(((GameNewsViewHolder) vh).headIv);
+            //KJBitmap kjbitmap = new KJBitmap();
+            //kjbitmap.displayw(((GameNewsViewHolder) vh).headIv,gameNews.getImage_url_small());
         }
     }
 
