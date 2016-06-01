@@ -88,7 +88,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView(view);
+        //initView(view);
     }
 
     @Override

@@ -2,6 +2,7 @@ package base;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 
 import com.hm.testproject.AppContext;
 
+import fragment.LazyLoadFragment;
+
 /**
  * 碎片基类
  * 
@@ -17,8 +20,12 @@ import com.hm.testproject.AppContext;
  * @created 2014年9月25日 上午11:18:46
  * 
  */
-public class BaseFragment extends Fragment implements
+public class BaseFragment extends LazyLoadFragment implements
         View.OnClickListener, BaseFragmentInterface {
+
+    // 标志位，标志已经初始化完成。
+    protected boolean isPrepared;
+
     public static final int STATE_NONE = 0;
     public static final int STATE_REFRESH = 1;
     public static final int STATE_LOADMORE = 2;
@@ -42,7 +49,14 @@ public class BaseFragment extends Fragment implements
             Bundle savedInstanceState) {
         this.mInflater = inflater;
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        isPrepared = true;
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
     }
 
     @Override
@@ -112,5 +126,12 @@ public class BaseFragment extends Fragment implements
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    protected void lazyLoad() {
+        if(!isPrepared || !isVisible) {
+            return;
+        }
     }
 }

@@ -1,11 +1,16 @@
 package fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 
 import com.google.gson.Gson;
+
+import junit.framework.Test;
 
 import java.io.InputStream;
 import java.io.Serializable;
@@ -28,6 +33,7 @@ public class GameNewsListFragment extends BaseListFragment<GameNews>{
     private static final String CACHE_KEY_PREFIX = "gamenewslist";
     private String mPageurl="0000";
     private String mnextPage;
+    private String channel;
     public GameNewsList gameNewsList;
 
     @Override
@@ -44,6 +50,14 @@ public class GameNewsListFragment extends BaseListFragment<GameNews>{
         list = gson.fromJson(new String(data),GameNewsList.class);
         mnextPage = list.getNext();
         return list;
+    }
+
+    public GameNewsListFragment getGameNewsListFragment(Context context,String channel){
+        String cname = GameNewsListFragment.class.getName();
+        GameNewsListFragment newsListFragment = (GameNewsListFragment) Fragment.instantiate(context,cname);
+        Bundle bundle = new Bundle();
+        bundle.putString("channel",channel);
+        return newsListFragment;
     }
 
     @Override
@@ -88,7 +102,13 @@ public class GameNewsListFragment extends BaseListFragment<GameNews>{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPageurl = TestApi.getPages(mCatalog);
+        Bundle arg = getArguments();
+        String channel = arg.getString("channel");
+        if(TextUtils.isEmpty(channel)){
+            mPageurl = TestApi.getPages(mCatalog);
+        }else{
+            mPageurl = TestApi.getPages(channel);
+        }
     }
 
     @Override

@@ -22,6 +22,9 @@ public class TestApi {
     public static String getPages(int id){
         return  "c"+id+"_list_1.shtml";
     }
+    public static String getPages(String channel){
+        return  "c"+channel+"_list_1.shtml";
+    }
 
 
 
@@ -44,6 +47,10 @@ public class TestApi {
 
     public static void getZmNewsList(String url,AsyncHttpResponseHandler handler){
         ApiHttpClient.get2(INDEX_URL+url,handler);
+    }
+
+    public static void getZmTitlesList(AsyncHttpResponseHandler handler){
+        ApiHttpClient.get2(INDEX_URL+GET_TITLES,handler);
     }
 
     public static void openIdLogin(String s) {
