@@ -7,6 +7,16 @@
       </config>
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_news.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pull_refresh_listview.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/list_news_item_middle.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -22,161 +32,38 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/viewpager_top.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CUSTOM_FILTER" value="BaseA" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d52088a5-3df9-41a5-9bfd-59373c5ab7c9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_async_http_1_4_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/android_iconify_1_0_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/butterknife_5_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_umeng_message_v2_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/design_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/glide_3_5_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/httpclient_4_3_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/kjframe_2_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/okio_1_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_24_0_0_alpha2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/wire_runtime_1_7_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/xstream_1_4_7.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/debug/libs/com.umeng.message_v2.8.0.jar" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/debug/libs/com.umeng.message_v2.8.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/release/libs/com.umeng.message_v2.8.0.jar" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/bundles/release/libs/com.umeng.message_v2.8.0.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/transforms/mergeJavaRes/debug/jars/2/3/main.jar" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/transforms/mergeJavaRes/debug/jars/2/3/main.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/transforms/mergeJavaRes/release/jars/2/3/main.jar" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/transforms/mergeJavaRes/release/jars/2/3/main.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/outputs/aar/PushSDK-debug.aar" afterPath="$PROJECT_DIR$/PushSDK/build/outputs/aar/PushSDK-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/outputs/aar/PushSDK-release.aar" afterPath="$PROJECT_DIR$/PushSDK/build/outputs/aar/PushSDK-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/AnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/AnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/ScaleInAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/ScaleInAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SlideInBottomAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SlideInBottomAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SlideInLeftAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SlideInLeftAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SlideInRightAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SlideInRightAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SwingBottomInAnimationAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/SwingBottomInAnimationAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/helper/AnimatorUtil.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/helper/AnimatorUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/helper/ViewAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/adapter/helper/ViewAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$3.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$4.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$5.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$6.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$ChangeInfo.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$ChangeInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$MoveInfo.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$MoveInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/R.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/debug/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/AnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/AnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/ScaleInAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/ScaleInAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SlideInBottomAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SlideInBottomAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SlideInLeftAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SlideInLeftAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SlideInRightAnimatorAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SlideInRightAnimatorAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SwingBottomInAnimationAdapter.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/SwingBottomInAnimationAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/helper/AnimatorUtil.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/helper/AnimatorUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/helper/ViewAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/adapter/helper/ViewAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$3.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$4.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$5.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$6.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$ChangeInfo.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$ChangeInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$MoveInfo.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator$MoveInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/BaseItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/R.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/ScaleInOutItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutBottomItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutLeftItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutRightItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideInOutTopItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$1.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$2.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator.class" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/classes/release/it/gmariotti/recyclerview/itemanimator/SlideScaleInOutRightItemAnimator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/outputs/aar/RecycleviewAnimationiLibrary-debug.aar" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/outputs/aar/RecycleviewAnimationiLibrary-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/outputs/aar/RecycleviewAnimationiLibrary-release.aar" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/outputs/aar/RecycleviewAnimationiLibrary-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/PushSDK.iml" afterPath="$PROJECT_DIR$/PushSDK/PushSDK.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/packageDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/PushSDK/build/intermediates/incremental/packageReleaseResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/RecycleviewAnimationiLibrary.iml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/RecycleviewAnimationiLibrary.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/blame/res/androidTest/debug/multi/values.json" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/blame/res/androidTest/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/blame/res/release/multi/values.json" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/blame/res/release/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugAndroidTestAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/mergeReleaseResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/packageDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/RecycleviewAnimationiLibrary/build/intermediates/incremental/packageReleaseResources/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/base/BaseFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/base/BaseFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/adapter/NewsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/adapter/NewsAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/bean/GameNewsList.java" afterPath="$PROJECT_DIR$/app/src/main/java/bean/GameNewsList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/base/RecyclerBaseAapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/base/RecyclerBaseAapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/http/TestApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/http/TestApi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pull_refresh_listview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_pull_refresh_listview.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/library/src/main/AndroidManifest.xml" />
     </list>
     <ignored path="TestProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -197,103 +84,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameNewsListFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="18.396826">
-              <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
-              <folding>
-                <element signature="e#4101#4102#0" expanded="true" />
-                <element signature="e#4154#4155#0" expanded="true" />
-                <element signature="e#4490#4491#0" expanded="true" />
-                <element signature="e#4546#4547#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameNewsList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/GameNewsList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6333333">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#370#380#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#560#561#0" expanded="true" />
-                <element signature="e#600#601#0" expanded="true" />
-                <element signature="e#632#633#0" expanded="true" />
-                <element signature="e#672#673#0" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#766#767#0" expanded="true" />
-                <element signature="e#816#817#0" expanded="true" />
-                <element signature="e#859#860#0" expanded="true" />
-                <element signature="e#886#887#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/SearchList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state vertical-scroll-proportion="-4.071429">
+              <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LazyLoadFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/fragment/LazyLoadFragment.java">
+      <file leaf-file-name="TestApi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/http/TestApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-              <folding>
-                <element signature="e#613#614#0" expanded="true" />
-                <element signature="e#639#640#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NewsActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.285714">
-              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-              <folding>
-                <element signature="e#1473#1480#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gson.java" pinned="false" current-in-tab="true">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a6dc5db8a12928e583bd3f23e72d3ab611ecd58f/gson-2.2.4-sources.jar!/com/google/gson/Gson.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36363637">
-              <caret line="688" column="0" selection-start-line="688" selection-start-column="0" selection-end-line="688" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.6984127">
+              <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TitleList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/TitleList.java">
+      <file leaf-file-name="NewsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/NewsAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.2">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseListFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.5238094">
+              <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#340#341#0" expanded="true" />
-                <element signature="e#365#366#0" expanded="true" />
-                <element signature="e#412#413#0" expanded="true" />
-                <element signature="e#440#441#0" expanded="true" />
-                <element signature="e#485#486#0" expanded="true" />
-                <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#590#597#0" expanded="true" />
+                <element signature="e#5499#5897#0" expanded="true" />
+                <element signature="e#5896#5897#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameNewsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.4920635">
+              <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecyclerBaseAapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/base/RecyclerBaseAapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.4126985">
+              <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="133" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -301,19 +150,21 @@
       <file leaf-file-name="ApiHttpClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/http/ApiHttpClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.6984127">
+              <caret line="88" column="43" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsyncHttpClient.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/5d171c3cd5343e5997f974561abed21442273fd1/android-async-http-1.4.9-sources.jar!/com/loopj/android/http/AsyncHttpClient.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1036" column="0" selection-start-line="1036" selection-start-column="0" selection-end-line="1036" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.18566775">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+              <folding>
+                <element signature="e#448#466#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -324,6 +175,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
@@ -976,6 +828,16 @@
                 <option name="description" value="Prepare com.android.support:support-vector-drawable:24.0.0-alpha2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2400Alpha2Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.thefinestartist:finestwebview:1.2.7" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComThefinestartistFinestwebview127Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.thefinestartist:utils:0.9.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComThefinestartistUtils090Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare org.kymjs.kjframe:kjframe:2.6" />
@@ -2485,6 +2347,16 @@
                 <option name="name" value="prepareComAndroidSupportSupportVectorDrawable2400Alpha2Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.thefinestartist:finestwebview:1.2.7" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComThefinestartistFinestwebview127Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.thefinestartist:utils:0.9.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComThefinestartistUtils090Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareDebugAndroidTestDependencies" />
               </ExternalTaskPojo>
@@ -3195,7 +3067,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="8788070958462" />
+        <entry key="$PROJECT_DIR$" value="8788156720653" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3637,9 +3509,13 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.joanzapata.android/android-iconify/1.0.9/27817b0ae26d4fa788711f1f75aaa45d76901722/android-iconify-1.0.9.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.5.2/ecf534dba3a8446ce84cbb797d314763be212a68/glide-3.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thefinestartist/finestwebview/1.2.7/bd6b5211b474af3ff0a18b406b34e6dd6ec7d4e0/finestwebview-1.2.7.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar" />
                             <option value="D:/adt/adt-bundle-windows-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0-alpha2/support-annotations-24.0.0-alpha2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thefinestartist/utils/0.9.0/8ed197ac5fc908c1c889158699b9935b5951d28b/utils-0.9.0.aar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thefinestartist/annotations/0.9.0/b69d23b00ca5fd30feea91ab4b24a192d6b928ef/annotations-0.9.0.jar" />
                             <option value="D:/adt/adt-bundle-windows-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/appcompat-v7/24.0.0-alpha2/appcompat-v7-24.0.0-alpha2.aar" />
                             <option value="D:/adt/adt-bundle-windows-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-vector-drawable/24.0.0-alpha2/support-vector-drawable-24.0.0-alpha2.aar" />
                             <option value="D:/adt/adt-bundle-windows-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/24.0.0-alpha2/animated-vector-drawable-24.0.0-alpha2.aar" />
@@ -3884,23 +3760,30 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/listitem_news_pics.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/news_item_selector.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/bean/GameNews.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/util/StringUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/util/TimeZoneUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_news_item_middle.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_topic_entry.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/fragment/LazyLoadFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/base/BaseFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/http/TestApi.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bean/TitleList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bean/GameNewsList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_pull_refresh_listview.xml" />
+        <option value="$PROJECT_DIR$/library/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/acy/TestActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/viewpager_top.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/adapter/NewsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/base/RecyclerBaseAapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/http/TestApi.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java" />
       </list>
     </option>
   </component>
@@ -3915,8 +3798,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-267" />
+    <option name="y" value="74" />
     <option name="width" value="1616" />
     <option name="height" value="916" />
   </component>
@@ -3945,7 +3828,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -3972,111 +3854,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -4129,6 +3906,384 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="viewpagerindicator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4136,10 +4291,10 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="7N2SSE15A8129853" />
+    <property name="device.picker.selection" value="a59fc60a" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ViewPagerIndicator-master" />
-    <property name="SearchEverywhereHistoryKey" value="Gameli&#9;PSI&#9;JAVA://bean.GameNewsList&#10;Ga&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/bean/GameNewsList.java&#10;Titl&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/bean/TitleList.java&#10;Game&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/bean/GameNewsList.java&#10;Tit&#9;PSI&#9;JAVA://bean.Title&#10;b&#9;FILE&#9;file://E:/Android Project/TestProject/app/build.gradle&#10;Base&#9;FILE&#9;file://E:/Android_Project/TestProject/app/src/main/java/base/BaseListFragment.java&#10;bui&#9;FILE&#9;file://E:/Android_Project/TestProject/app/build.gradle" />
+    <property name="SearchEverywhereHistoryKey" value="Testa&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/http/TestApi.java&#10;Gam&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/fragment/GameNewsListFragment.java&#10;bui&#9;FILE&#9;file://E:/Android Project/TestProject/app/build.gradle&#10;colors&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/res/values/colors.xml&#10;tEST&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/ui/acy/TestActivity.java&#10;Adapter&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/adapter/GameNewsAdapter.java&#10;Game&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/fragment/GameNewsListFragment.java&#10;Newsa&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/ui/acy/NewsActivity.java&#10;Test&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/http/TestApi.java&#10;Gameli&#9;PSI&#9;JAVA://bean.GameNewsList&#10;Ga&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/bean/GameNewsList.java&#10;Titl&#9;FILE&#9;file://E:/Android Project/TestProject/app/src/main/java/bean/TitleList.java&#10;Tit&#9;PSI&#9;JAVA://bean.Title&#10;b&#9;FILE&#9;file://E:/Android Project/TestProject/app/build.gradle&#10;Base&#9;FILE&#9;file://E:/Android_Project/TestProject/app/src/main/java/base/BaseListFragment.java" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="136" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="155" />
@@ -4158,16 +4313,19 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.packageName">
+      <recent name="ui.acy" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="bean" />
       <recent name="util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Android Project\TestProject\app\src\main\res\drawable" />
+      <recent name="E:\Android Project\TestProject\app\src\main\res\values" />
+      <recent name="E:\Android Project\TestProject\app\src\main\res\drawable-hdpi" />
       <recent name="E:\Android Project\TestProject\app\src\main\res\drawable-xhdpi" />
       <recent name="E:\Android Project\TestProject\app\src\main\res\layout" />
-      <recent name="E:\Android Project\TestProject\app\libs" />
-      <recent name="E:\Android Project\TestProject\TestProject\app\libs" />
-      <recent name="E:\Android Project\TestProject\TestProject\app\src\main\res\layout" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -4472,19 +4630,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="false" />
+    <frame x="-267" y="74" width="1616" height="916" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02925532" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5638298" sideWeight="0.882227" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42553192" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.105053194" sideWeight="0.882227" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40425533" sideWeight="0.48715204" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44547874" sideWeight="0.48715204" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3452381" sideWeight="0.51284796" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -4492,7 +4651,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04920213" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28723404" sideWeight="0.48926175" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17819148" sideWeight="0.48926175" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -4503,7 +4662,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -4511,34 +4669,35 @@
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78723407" sideWeight="0.882227" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1768617" sideWeight="0.882227" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3452381" sideWeight="0.51284796" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04920213" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.04920213" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2719072" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32712767" sideWeight="0.4780514" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34858248" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32712767" sideWeight="0.4780514" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02925532" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34575087" sideWeight="0.48715204" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30319148" sideWeight="0.48715204" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22606383" sideWeight="0.48926175" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28723404" sideWeight="0.48926175" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295302" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295302" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -4558,33 +4717,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java</url>
-          <line>70</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java</url>
-          <line>71</line>
+          <line>80</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java</url>
-          <line>87</line>
+          <line>88</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java</url>
-          <line>85</line>
+          <line>86</line>
           <properties />
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java</url>
-          <line>209</line>
-          <properties />
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/http/ApiHttpClient.java</url>
@@ -4593,278 +4746,77 @@
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java</url>
-          <line>106</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java</url>
-          <line>152</line>
+          <line>164</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java</url>
-          <line>154</line>
+          <line>166</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java</url>
-          <line>151</line>
+          <line>163</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java</url>
-          <line>87</line>
+          <line>99</line>
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a6dc5db8a12928e583bd3f23e72d3ab611ecd58f/gson-2.2.4-sources.jar!/com/google/gson/Gson.java</url>
-          <line>688</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/TestActivity.java</url>
+          <line>50</line>
           <properties />
-          <option name="timeStamp" value="36" />
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a6dc5db8a12928e583bd3f23e72d3ab611ecd58f/gson-2.2.4-sources.jar!/com/google/gson/Gson.java</url>
-          <line>689</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/TestActivity.java</url>
+          <line>49</line>
           <properties />
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/TestActivity.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/TestActivity.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java</url>
+          <line>156</line>
+          <properties />
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java</url>
-          <line>169</line>
+          <line>181</line>
           <properties method="onFailure" />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java</url>
-          <line>94</line>
+          <line>106</line>
           <properties method="onSuccess" />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="38" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/GameNews.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="152" column="41" selection-start-line="152" selection-start-column="41" selection-end-line="152" selection-end-column="41" />
-          <folding>
-            <element signature="e#1557#1558#0" expanded="false" />
-            <element signature="e#1590#1591#0" expanded="false" />
-            <element signature="e#1642#1643#0" expanded="false" />
-            <element signature="e#1686#1687#0" expanded="false" />
-            <element signature="e#1725#1726#0" expanded="false" />
-            <element signature="e#1760#1761#0" expanded="false" />
-            <element signature="e#1816#1817#0" expanded="false" />
-            <element signature="e#1864#1865#0" expanded="false" />
-            <element signature="e#1901#1902#0" expanded="false" />
-            <element signature="e#1934#1935#0" expanded="false" />
-            <element signature="e#1986#1987#0" expanded="false" />
-            <element signature="e#2030#2031#0" expanded="false" />
-            <element signature="e#2068#2069#0" expanded="false" />
-            <element signature="e#2102#2103#0" expanded="false" />
-            <element signature="e#2156#2157#0" expanded="false" />
-            <element signature="e#2202#2203#0" expanded="false" />
-            <element signature="e#2245#2246#0" expanded="false" />
-            <element signature="e#2284#2285#0" expanded="false" />
-            <element signature="e#2440#2441#0" expanded="false" />
-            <element signature="e#2472#2473#0" expanded="false" />
-            <element signature="e#2522#2523#0" expanded="false" />
-            <element signature="e#2564#2565#0" expanded="false" />
-            <element signature="e#2598#2599#0" expanded="false" />
-            <element signature="e#2627#2628#0" expanded="false" />
-            <element signature="e#2672#2673#0" expanded="false" />
-            <element signature="e#2708#2709#0" expanded="false" />
-            <element signature="e#2746#2747#0" expanded="false" />
-            <element signature="e#2780#2781#0" expanded="false" />
-            <element signature="e#2834#2835#0" expanded="false" />
-            <element signature="e#2880#2881#0" expanded="false" />
-            <element signature="e#2912#2913#0" expanded="false" />
-            <element signature="e#2940#2941#0" expanded="false" />
-            <element signature="e#2982#2983#0" expanded="false" />
-            <element signature="e#3016#3017#0" expanded="false" />
-            <element signature="e#3058#3059#0" expanded="false" />
-            <element signature="e#3096#3097#0" expanded="false" />
-            <element signature="e#3252#3253#0" expanded="false" />
-            <element signature="e#3288#3289#0" expanded="false" />
-            <element signature="e#3346#3347#0" expanded="false" />
-            <element signature="e#3396#3397#0" expanded="false" />
-            <element signature="e#3433#3434#0" expanded="false" />
-            <element signature="e#3466#3467#0" expanded="false" />
-            <element signature="e#3518#3519#0" expanded="false" />
-            <element signature="e#3562#3563#0" expanded="false" />
-            <element signature="e#3604#3605#0" expanded="false" />
-            <element signature="e#3641#3642#0" expanded="false" />
-            <element signature="e#3702#3703#0" expanded="false" />
-            <element signature="e#3754#3755#0" expanded="false" />
-            <element signature="e#3786#3787#0" expanded="false" />
-            <element signature="e#3814#3815#0" expanded="false" />
-            <element signature="e#3856#3857#0" expanded="false" />
-            <element signature="e#3890#3891#0" expanded="false" />
-            <element signature="e#3924#3925#0" expanded="false" />
-            <element signature="e#3954#3955#0" expanded="false" />
-            <element signature="e#4000#4001#0" expanded="false" />
-            <element signature="e#4038#4039#0" expanded="false" />
-            <element signature="e#4073#4074#0" expanded="false" />
-            <element signature="e#4104#4105#0" expanded="false" />
-            <element signature="e#4152#4153#0" expanded="false" />
-            <element signature="e#4192#4193#0" expanded="false" />
-            <element signature="e#4225#4226#0" expanded="false" />
-            <element signature="e#4254#4255#0" expanded="false" />
-            <element signature="e#4298#4299#0" expanded="false" />
-            <element signature="e#4334#4335#0" expanded="false" />
-            <element signature="e#4367#4368#0" expanded="false" />
-            <element signature="e#4396#4397#0" expanded="false" />
-            <element signature="e#4440#4441#0" expanded="false" />
-            <element signature="e#4476#4477#0" expanded="false" />
-            <element signature="e#4513#4514#0" expanded="false" />
-            <element signature="e#4546#4547#0" expanded="false" />
-            <element signature="e#4598#4599#0" expanded="false" />
-            <element signature="e#4642#4643#0" expanded="false" />
-            <element signature="e#4678#4679#0" expanded="false" />
-            <element signature="e#4710#4711#0" expanded="false" />
-            <element signature="e#4760#4761#0" expanded="false" />
-            <element signature="e#4802#4803#0" expanded="false" />
-            <element signature="e#4835#4836#0" expanded="false" />
-            <element signature="e#4864#4865#0" expanded="false" />
-            <element signature="e#4908#4909#0" expanded="false" />
-            <element signature="e#4944#4945#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_news_item_middle.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/http/OperationResponseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fragment/NewsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_topic_entry.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="64" selection-start-line="25" selection-start-column="64" selection-end-line="25" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/import-summary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/base/RecyclerBaseAapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19027181">
-          <caret line="26" column="79" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/ViewPageInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43490702">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/ViewPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5379113">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/adt/adt-bundle-windows-x86_64-20140321/sdk/sources/android-23/java/lang/ref/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3601757">
-          <caret line="202" column="29" selection-start-line="202" selection-start-column="29" selection-end-line="202" selection-end-column="29" />
-          <folding>
-            <element signature="e#7232#7233#0" expanded="false" />
-            <element signature="e#7268#7269#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cache/CacheManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33235726">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/base/BaseFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.047619">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/adt/adt-bundle-windows-x86_64-20140321/sdk/sources/android-23/android/text/TextUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40792078">
@@ -4881,27 +4833,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/http/TestApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33187774">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/http/ApiHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/5d171c3cd5343e5997f974561abed21442273fd1/android-async-http-1.4.9-sources.jar!/com/loopj/android/http/AsyncHttpClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1036" column="0" selection-start-line="1036" selection-start-column="0" selection-end-line="1036" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#72474#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#6653#6654#0" expanded="false" />
+            <element signature="e#6689#6690#0" expanded="false" />
+            <element signature="e#6845#6846#0" expanded="false" />
+            <element signature="e#6887#6888#0" expanded="false" />
+            <element signature="e#7112#7113#0" expanded="false" />
+            <element signature="e#7160#7161#0" expanded="false" />
+            <element signature="e#19070#19071#0" expanded="false" />
+            <element signature="e#19108#19109#0" expanded="false" />
+            <element signature="e#19413#19414#0" expanded="false" />
+            <element signature="e#19452#19453#0" expanded="false" />
+            <element signature="e#19712#19713#0" expanded="false" />
+            <element signature="e#19757#19758#0" expanded="false" />
+            <element signature="e#20032#20033#0" expanded="false" />
+            <element signature="e#20085#20086#0" expanded="false" />
+            <element signature="e#20312#20313#0" expanded="false" />
+            <element signature="e#20356#20357#0" expanded="false" />
+            <element signature="e#20654#20655#0" expanded="false" />
+            <element signature="e#20699#20700#0" expanded="false" />
+            <element signature="e#20911#20912#0" expanded="false" />
+            <element signature="e#20937#20938#0" expanded="false" />
+            <element signature="e#21937#21938#0" expanded="false" />
+            <element signature="e#21970#21971#0" expanded="false" />
+            <element signature="e#22323#22324#0" expanded="false" />
+            <element signature="e#22367#22368#0" expanded="false" />
+            <element signature="e#22570#22571#0" expanded="false" />
+            <element signature="e#22624#22625#0" expanded="false" />
+            <element signature="e#25707#25708#0" expanded="false" />
+            <element signature="e#25744#25745#0" expanded="false" />
+            <element signature="e#26948#26949#0" expanded="false" />
+            <element signature="e#26985#26986#0" expanded="false" />
+            <element signature="e#27753#27754#0" expanded="false" />
+            <element signature="e#27791#27792#0" expanded="false" />
+            <element signature="e#30499#30500#0" expanded="false" />
+            <element signature="e#30538#30539#0" expanded="false" />
+            <element signature="e#30802#30803#0" expanded="false" />
+            <element signature="e#30852#30853#0" expanded="false" />
+            <element signature="e#31041#31042#0" expanded="false" />
+            <element signature="e#31087#31088#0" expanded="false" />
+            <element signature="e#34324#34325#0" expanded="false" />
+            <element signature="e#34388#34389#0" expanded="false" />
+            <element signature="e#35525#35526#0" expanded="false" />
+            <element signature="e#35615#35616#0" expanded="false" />
+            <element signature="e#69274#69275#0" expanded="false" />
+            <element signature="e#69324#69325#0" expanded="false" />
+            <element signature="e#69593#69594#0" expanded="false" />
+            <element signature="e#69644#69645#0" expanded="false" />
+            <element signature="e#70560#70561#0" expanded="false" />
+            <element signature="e#70603#70604#0" expanded="false" />
+            <element signature="e#71488#71489#0" expanded="false" />
+            <element signature="e#71526#71527#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -4917,34 +4906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.009202454">
           <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.563107">
-          <caret line="210" column="37" selection-start-line="210" selection-start-column="37" selection-end-line="210" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/SearchList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fragment/LazyLoadFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-          <folding>
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#639#640#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4958,69 +4919,389 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/TitleList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.2">
+        <state vertical-scroll-proportion="0.0">
           <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#517#518#0" expanded="true" />
-            <element signature="e#590#597#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="false" />
+            <element signature="e#669#670#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fragment/LazyLoadFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="18.396826">
-          <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
-          <folding>
-            <element signature="e#4101#4102#0" expanded="true" />
-            <element signature="e#4154#4155#0" expanded="true" />
-            <element signature="e#4490#4491#0" expanded="true" />
-            <element signature="e#4546#4547#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_news.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.166667">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/GameNewsList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6333333">
+        <state vertical-scroll-proportion="0.2635659">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#370#380#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#816#817#0" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#886#887#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java">
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/com/viewpagerindicator/TabPageIndicator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.285714">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding>
-            <element signature="e#1473#1480#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.3312102">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pull_refresh_listview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.95">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/bean/SearchList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/news_item_selector.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2375">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator_unselected_pressed.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator_unselected_focused.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator_unselected.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator_selected_pressed.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator_selected_focused.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator_selected.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.464286">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/ViewPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47434118">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.kymjs.kjframe/kjframe/2.6/3c3c64d411775f403ef5c21e7ee9f17905a594a2/kjframe-2.6-sources.jar!/org/kymjs/kjframe/ui/I_KJActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13037448">
+          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/base/BaseActiviy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="77" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/custom_tab_indicator_divider.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.0">
+          <caret line="226" column="0" selection-start-line="226" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a6dc5db8a12928e583bd3f23e72d3ab611ecd58f/gson-2.2.4-sources.jar!/com/google/gson/Gson.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36363637">
+        <state vertical-scroll-proportion="0.0">
           <caret line="688" column="0" selection-start-line="688" selection-start-column="0" selection-end-line="688" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/acy/NewsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/res/values/vpi__attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.607142">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/5.1.1/bca8563cddd5e42ff515ad2c352061aded769de7/butterknife-5.1.1-sources.jar!/butterknife/ButterKnife.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5745455">
+          <caret line="84" column="19" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/com/viewpagerindicator/CirclePageIndicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325301">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/acy/TestActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding>
+            <element signature="e#1512#1513#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
+            <element signature="e#1857#1858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/viewpager_top.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.2833333">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.25">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thefinestartist/finestwebview/1.2.7/6bf136d82ad78e9f09a5dee416e73aab46f1834d/finestwebview-1.2.7-sources.jar!/com/thefinestartist/finestwebview/FinestWebView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="921" column="0" selection-start-line="921" selection-start-column="0" selection-end-line="921" selection-end-column="0" />
+          <folding>
+            <element signature="e#31416#31417#0" expanded="false" />
+            <element signature="e#31455#31456#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/adt/adt-bundle-windows-x86_64-20140321/sdk/sources/android-23/android/widget/AdapterView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7772586">
+          <caret line="272" column="24" selection-start-line="272" selection-start-column="13" selection-end-line="272" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/adt/adt-bundle-windows-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/24.0.0-alpha2/recyclerview-v7-24.0.0-alpha2-sources.jar!/android/support/v7/widget/RecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="8884" column="35" selection-start-line="8884" selection-start-column="35" selection-end-line="8884" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fragment/GameNewsListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <element signature="e#4158#4159#0" expanded="true" />
+            <element signature="e#4211#4212#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.071429">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/http/TestApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6984127">
+          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/base/RecyclerBaseAapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4126985">
+          <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="133" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/GameNewsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.4920635">
+          <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/base/BaseListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5238094">
+          <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
+          <folding>
+            <element signature="e#5499#5897#0" expanded="true" />
+            <element signature="e#5896#5897#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/adapter/NewsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/thefinestartist/finestwebview/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3496732">
+          <caret line="1351" column="32" selection-start-line="1351" selection-start-column="32" selection-end-line="1351" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thefinestartist/finestwebview/1.2.7/6bf136d82ad78e9f09a5dee416e73aab46f1834d/finestwebview-1.2.7-sources.jar!/com/thefinestartist/finestwebview/FinestWebViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="933" column="0" selection-start-line="933" selection-start-column="0" selection-end-line="933" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/http/ApiHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6984127">
+          <caret line="88" column="43" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18566775">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding>
+            <element signature="e#448#466#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -35,6 +35,7 @@ dependencies {
     compile 'com.android.support:support-v4:23.cb.0'
     compile 'com.github.bumptech.glide:glide:3.5.2'
     compile project(':RecycleviewAnimationiLibrary')
+    compile 'com.thefinestartist:finestwebview:1.2.7'
     compile project(':PushSDK')
     compile 'com.google.code.gson:gson:2.2.4'
     compile project(':library')

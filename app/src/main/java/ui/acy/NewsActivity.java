@@ -84,8 +84,20 @@ public class NewsActivity extends BaseActiviy {
     public void initWidget() {
         //this.setSupportActionBar(toolbar);
         fa = new ViewPagerAdapter(getSupportFragmentManager(),this);
+        fa.addTab("最新", "zm_news_"+12, GameNewsListFragment.class,
+                getBundle(12));
+        fa.addTab("赛事", "zm_news_"+73, GameNewsListFragment.class,
+                getBundle(73));
+        fa.addTab("活动", "zm_news_"+23, GameNewsListFragment.class,
+                getBundle(23));
+        fa.addTab("娱乐", "zm_news_"+18, GameNewsListFragment.class,
+                getBundle(18));
+        fa.addTab("官方", "zm_news_"+3, GameNewsListFragment.class,
+                getBundle(3));
+        fa.addTab("攻略", "zm_news_"+10, GameNewsListFragment.class,
+                getBundle(10));
         pager.setAdapter(fa);
-        TestApi.getZmTitlesList(mHandler);
+        //TestApi.getZmTitlesList(mHandler);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         tabLayout.setupWithViewPager(pager);
     }

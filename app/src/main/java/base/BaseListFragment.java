@@ -12,10 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 import com.hm.testproject.AppContext;
 import com.hm.testproject.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.thefinestartist.finestwebview.FinestWebView;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -33,6 +35,8 @@ import butterknife.InjectView;
 import cache.CacheManager;
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.impl.execchain.RetryExec;
+import http.ApiHttpClient;
+import http.TestApi;
 import it.gmariotti.recyclerview.adapter.SlideInBottomAnimatorAdapter;
 import ui.DividerItemDecoration;
 import ui.empty.EmptyLayout;
@@ -108,7 +112,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.swiperefresh_color1, R.color.swiperefresh_color2,
                 R.color.swiperefresh_color3, R.color.swiperefresh_color4);
-
         mrecycleView.setLayoutManager(manager);
         mrecycleView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL_LIST));
@@ -146,6 +149,14 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             }
         });
         mrecycleView.setItemAnimator(new DefaultItemAnimator());
+        mAdapter.setmOnItemClickListener(new RecyclerBaseAapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view, String data) {
+                data = ApiHttpClient.getAbsoluteApiUrl2(TestApi.INDEX_URL+data);
+                new FinestWebView.Builder(getActivity()).show(data);
+                //Toast.makeText(getActivity(), data, Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

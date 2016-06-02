@@ -11,6 +11,42 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="colorAccent">@color/lightblue</item>
     </style>
+    <style name="StyledIndicators" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="vpiCirclePageIndicatorStyle">@style/CustomCirclePageIndicator</item>
+        <item name="vpiTitlePageIndicatorStyle">@style/CustomTitlePageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+    </style>
+    <style name="CustomCirclePageIndicator">
+        <item name="centered">true</item>
+        <item name="strokeWidth">2.0dip</item>
+        <item name="fillColor">#ff888888</item>
+        <item name="radius">10.0dip</item>
+        <item name="strokeColor">#ff000000</item>
+    </style>
+    <style name="CustomTabPageIndicator" parent="@style/Widget.TabPageIndicator">
+        <item name="android:textAppearance">@style/CustomTabPageIndicator.Text</item>
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">#ff555555</item>
+        <item name="android:background">@drawable/custom_tab_indicator</item>
+        <item name="android:paddingLeft">8.0dip</item>
+        <item name="android:paddingRight">8.0dip</item>
+        <item name="android:fadingEdge">horizontal</item>
+        <item name="android:fadingEdgeLength">8.0dip</item>
+        <item name="android:divider">@drawable/custom_tab_indicator_divider</item>
+    </style>
+    <style name="CustomTabPageIndicator.Text" parent="@android:style/TextAppearance.Medium">
+        <item name="android:typeface">monospace</item>
+    </style>
+    <style name="CustomTitlePageIndicator">
+        <item name="android:textColor">#aa000000</item>
+        <item name="android:background">#18ff0000</item>
+        <item name="selectedColor">#ff000000</item>
+        <item name="footerColor">#ffaa2222</item>
+        <item name="footerLineHeight">1.0dip</item>
+        <item name="footerIndicatorStyle">underline</item>
+        <item name="footerIndicatorHeight">3.0dip</item>
+        <item name="selectedBold">true</item>
+    </style>
 
     <style name="NewsFlag">
         <item name="android:textSize">10.0sp</item>

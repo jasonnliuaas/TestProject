@@ -24,7 +24,8 @@ import viewholder.ViewHolder;
 /**
  * Created by Administrator on 2016/4/27.
  */
-public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.Adapter<ViewHolder>{
+public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.Adapter<ViewHolder>
+implements View.OnClickListener{
     public static final int STATE_EMPTY_ITEM = 0;
     public static final int STATE_LOAD_MORE = 1;
     public static final int STATE_NO_MORE = 2;
@@ -37,6 +38,23 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
     protected boolean ishasFoot = false;
     protected boolean ishasHead = false;
     protected View mFootview;
+
+
+    public OnRecyclerViewItemClickListener getmOnItemClickListener() {
+        return mOnItemClickListener;
+    }
+
+    public void setmOnItemClickListener(OnRecyclerViewItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
+    protected OnRecyclerViewItemClickListener mOnItemClickListener = null;
+
+    //define interface
+    public static interface OnRecyclerViewItemClickListener {
+        void onItemClick(View view , String data);
+    }
+
 
     public boolean ishasFoot() {
         return ishasFoot;
@@ -107,10 +125,11 @@ public abstract class RecyclerBaseAapter<T extends Entity> extends RecyclerView.
         return mInflater;
     }
 
+
+
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         if (getItemViewType(position) == STATE_OTHER) {
-
             initViewData(holder, mDatas.get(position));
         } else {
             ProgressBar progressBar = (ProgressBar) holder.getView(R.id.progressbar);

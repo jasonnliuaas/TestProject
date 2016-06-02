@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hm.testproject.R;
+import com.thefinestartist.finestwebview.FinestWebView;
 
 import org.kymjs.kjframe.KJBitmap;
 import org.kymjs.kjframe.bitmap.BitmapCallBack;
@@ -55,12 +56,20 @@ public class GameNewsAdapter extends RecyclerBaseAapter<GameNews> {
             }
             if(gameNews.getImage_with_btn()){
                 ((GameNewsViewHolder) vh).newsSignVideo.setVisibility(View.VISIBLE);
-            }else{
+            }else {
                 ((GameNewsViewHolder) vh).newsSignVideo.setVisibility(View.GONE);
             }
             Glide.with(context).load(gameNews.getImage_url_small()).into(((GameNewsViewHolder) vh).headIv);
             //KJBitmap kjbitmap = new KJBitmap();
             //kjbitmap.displayw(((GameNewsViewHolder) vh).headIv,gameNews.getImage_url_small());
+        }
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position, List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+        if (getItemViewType(position) == STATE_OTHER) {
+            holder.itemView.setTag(mDatas.get(position).getArticle_url());
         }
     }
 
@@ -82,8 +91,19 @@ public class GameNewsAdapter extends RecyclerBaseAapter<GameNews> {
         if (viewType != STATE_OTHER) {
             return super.onCreateViewHolder(parent, viewType);
         } else {
-            GameNewsViewHolder viewHolder = new GameNewsViewHolder(getLayoutInflater(parent.getContext()).inflate(R.layout.news_item_topic, null));
+            View view = getLayoutInflater(parent.getContext()).inflate(R.layout.news_item_topic, null);
+            GameNewsViewHolder viewHolder = new GameNewsViewHolder(view);
+            view.setOnClickListener(this);
             return viewHolder;
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (mOnItemClickListener != null) {
+            //注意这里使用getTag方法获取数据
+            mOnItemClickListener.onItemClick(v,(String)v.getTag());
         }
     }
 

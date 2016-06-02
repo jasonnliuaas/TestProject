@@ -85,6 +85,11 @@ public class NewsAdapter extends RecyclerBaseAapter<News>{
         }
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
+
 
 
     /*@Override

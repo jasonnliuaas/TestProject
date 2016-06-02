@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 
 import com.google.gson.Gson;
+import com.thefinestartist.finestwebview.FinestWebView;
 
 import junit.framework.Test;
 
@@ -93,6 +94,7 @@ public class GameNewsListFragment extends BaseListFragment<GameNews>{
                     }
                 }
             }
+
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -132,7 +134,7 @@ public class GameNewsListFragment extends BaseListFragment<GameNews>{
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        new FinestWebView.Builder(getActivity()).show(mAdapter.getmDatas().get(position).getArticle_url());
     }
 
     @Override
